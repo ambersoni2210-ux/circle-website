@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       {/* ==================== HERO ==================== */}
-      <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center bg-white overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute top-20 right-20 w-[500px] h-[500px] rounded-full border border-black" />
@@ -20,8 +20,8 @@ export default function HomePage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-black" />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-32 pb-20 w-full">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 pt-28 sm:pt-32 pb-16 sm:pb-20 w-full">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-8 sm:gap-12 lg:gap-16 items-center">
             {/* Left */}
             <div>
               <AnimatedSection delay={0}>
@@ -31,7 +31,7 @@ export default function HomePage() {
               </AnimatedSection>
 
               <AnimatedSection delay={100}>
-                <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight mb-8">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight mb-8">
                   Wear Your<br />
                   <span className="font-normal">Circle</span><br />
                   With Pride<span className="text-black/20">.</span>
@@ -49,19 +49,19 @@ export default function HomePage() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     href="/shop"
-                    className="px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-all duration-300 text-center magnetic-btn"
+                    className="w-full sm:w-auto px-7 sm:px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-all duration-300 text-center magnetic-btn"
                   >
                     Shop Circle
                   </Link>
                   <Link
                     href="/b2b"
-                    className="px-10 py-4 border border-black text-sm tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300 text-center"
+                    className="w-full sm:w-auto px-7 sm:px-10 py-4 border border-black text-sm tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300 text-center"
                   >
                     Custom Orders
                   </Link>
                   <Link
                     href="/contact"
-                    className="px-10 py-4 text-sm tracking-[0.2em] uppercase text-black/50 hover:text-black transition-colors text-center"
+                    className="w-full sm:w-auto px-7 sm:px-10 py-4 text-sm tracking-[0.2em] uppercase text-black/50 hover:text-black transition-colors text-center"
                   >
                     Talk to Us &rarr;
                   </Link>
@@ -123,10 +123,10 @@ export default function HomePage() {
       </section>
 
       {/* ==================== FEATURED PRODUCTS ==================== */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-20 lg:py-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
-            <div className="flex items-end justify-between mb-16">
+            <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end mb-12 sm:mb-12 sm:mb-16">
               <div>
                 <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Featured</p>
                 <h2 className="text-3xl md:text-5xl font-light tracking-tight">
@@ -142,7 +142,7 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {featuredProducts.map((product, i) => (
               <AnimatedSection key={product.id} delay={i * 100}>
                 <ProductCard product={product} />
@@ -164,16 +164,16 @@ export default function HomePage() {
       </section>
 
       {/* ==================== HOW IT WORKS ==================== */}
-      <section className="py-24 md:py-32 bg-black text-white">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-20 lg:py-32 bg-black text-white">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-3">Process</p>
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-20">
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 sm:mb-20">
               How Circle Works
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-12 md:gap-16">
+          <div className="grid md:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
             {[
               {
                 step: '01',
@@ -210,7 +210,7 @@ export default function HomePage() {
       {/* ==================== SPLIT SECTION — MERCH + PLATFORM ==================== */}
       <section className="grid lg:grid-cols-2">
         {/* Merch Side */}
-        <div className="relative bg-gray-50 py-24 px-6 lg:px-16 flex items-center">
+        <div className="relative bg-gray-50 py-16 sm:py-20 lg:py-24 px-5 sm:px-6 lg:px-16 flex items-center">
           <AnimatedSection animation="slide-right">
             <div className="max-w-lg">
               <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Custom Merchandise</p>
@@ -232,7 +232,7 @@ export default function HomePage() {
         </div>
 
         {/* Platform Side */}
-        <div className="relative bg-black text-white py-24 px-6 lg:px-16 flex items-center">
+        <div className="relative bg-black text-white py-16 sm:py-20 lg:py-24 px-5 sm:px-6 lg:px-16 flex items-center">
           <AnimatedSection animation="slide-left">
             <div className="max-w-lg">
               <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-3">Store Platform</p>
@@ -255,10 +255,10 @@ export default function HomePage() {
       </section>
 
       {/* ==================== BRAND PRINCIPLES ==================== */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-20 lg:py-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12 sm:mb-16">
               <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Brand</p>
               <h2 className="text-3xl md:text-5xl font-light tracking-tight">
                 What Circle Stands For
@@ -269,7 +269,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {brandPrinciples.map((principle, i) => (
               <AnimatedSection key={principle.id} delay={i * 100}>
-                <div className="border border-gray-100 p-8 hover:border-gray-300 transition-colors duration-300 h-full flex flex-col">
+                <div className="border border-gray-100 p-6 sm:p-8 hover:border-gray-300 transition-colors duration-300 h-full flex flex-col">
                   <p className="text-xs tracking-[0.3em] uppercase text-black/30 mb-8">
                     0{principle.id}
                   </p>
@@ -285,9 +285,9 @@ export default function HomePage() {
       </section>
 
       {/* ==================== BRAND STORY ==================== */}
-      <section className="py-24 md:py-32 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-16 sm:py-20 lg:py-32 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-8 sm:gap-12 lg:gap-16 items-center">
             <AnimatedSection animation="slide-right">
               <div className="aspect-[4/3] bg-black overflow-hidden">
                 <img
@@ -325,16 +325,16 @@ export default function HomePage() {
       </section>
 
       {/* ==================== CATEGORIES GRID ==================== */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-20 lg:py-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Categories</p>
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-16">
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 sm:mb-16">
               Shop by Category
             </h2>
           </AnimatedSection>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               { name: 'T-Shirts', image: 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=400&h=500&fit=crop&q=80' },
               { name: 'Hoodies', image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=500&fit=crop&q=80' },
