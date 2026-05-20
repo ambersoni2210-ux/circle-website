@@ -44,7 +44,7 @@ export default function ContactPage() {
     return (
       <div className="pt-20">
         <section className="py-32 text-center">
-          <div className="max-w-lg mx-auto px-6">
+          <div className="max-w-lg mx-auto px-5 sm:px-6">
             <AnimatedSection>
               <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -67,8 +67,8 @@ export default function ContactPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-20 lg:py-28">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Contact</p>
             <h1 className="text-4xl md:text-6xl font-light tracking-tight">
@@ -82,16 +82,16 @@ export default function ContactPage() {
       </section>
 
       {/* Form Section */}
-      <section className="pb-24 md:pb-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="pb-16 sm:pb-20 lg:pb-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <div className="grid lg:grid-cols-5 gap-16">
             {/* Form */}
             <div className="lg:col-span-3">
               {/* Tabs */}
-              <div className="flex gap-1 mb-10">
+              <div className="grid grid-cols-1 gap-2 mb-8 sm:mb-10 sm:inline-grid sm:grid-cols-2">
                 <button
                   onClick={() => setFormType('contact')}
-                  className={`px-6 py-3 text-xs tracking-[0.15em] uppercase transition-all ${
+                  className={`min-h-11 px-5 sm:px-6 py-3 text-xs tracking-[0.15em] uppercase transition-all ${
                     formType === 'contact'
                       ? 'bg-black text-white'
                       : 'bg-gray-50 text-black/50 hover:bg-gray-100'
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 </button>
                 <button
                   onClick={() => setFormType('demo')}
-                  className={`px-6 py-3 text-xs tracking-[0.15em] uppercase transition-all ${
+                  className={`min-h-11 px-5 sm:px-6 py-3 text-xs tracking-[0.15em] uppercase transition-all ${
                     formType === 'demo'
                       ? 'bg-black text-white'
                       : 'bg-gray-50 text-black/50 hover:bg-gray-100'
@@ -112,7 +112,7 @@ export default function ContactPage() {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <input
                     type="text"
                     name="name"
@@ -120,7 +120,7 @@ export default function ContactPage() {
                     required
                     value={form.name}
                     onChange={handleChange}
-                    className="col-span-2 sm:col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors bg-transparent"
+                    className="sm:col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors bg-transparent"
                   />
                   <input
                     type="email"
@@ -129,7 +129,7 @@ export default function ContactPage() {
                     required
                     value={form.email}
                     onChange={handleChange}
-                    className="col-span-2 sm:col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors bg-transparent"
+                    className="sm:col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors bg-transparent"
                   />
                   <input
                     type="text"
@@ -137,7 +137,7 @@ export default function ContactPage() {
                     placeholder="Brand / Community / College"
                     value={form.organization}
                     onChange={handleChange}
-                    className="col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors bg-transparent"
+                    className="sm:col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors bg-transparent"
                   />
                 </div>
 
@@ -156,7 +156,7 @@ export default function ContactPage() {
                 </select>
 
                 {formType === 'demo' && (
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <input
                       type="date"
                       name="date"
@@ -200,7 +200,7 @@ export default function ContactPage() {
 
             {/* Contact Info */}
             <div className="lg:col-span-2">
-              <div className="bg-black text-white p-10 md:p-12 sticky top-28">
+              <div className="bg-black text-white p-6 sm:p-8 md:p-12 lg:sticky lg:top-28">
                 <h3 className="text-lg font-light tracking-wide mb-8">Get in Touch</h3>
 
                 <div className="space-y-8">
