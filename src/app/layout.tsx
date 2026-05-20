@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   title: 'Circle — Premium Merchandise & Everyday Pride',
   description:
     'Circle is a merchandise brand and store built around identity, belonging, and pride you can wear. Shop premium essentials or create custom merchandise for your community.',
+};
+
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
