@@ -1,21 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
   const { totalItems, setIsCartOpen } = useCart();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { href: '/shop', label: 'Shop' },
@@ -25,36 +19,77 @@ export default function Navbar() {
     { href: '/contact', label: 'Contact' },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMobileMenuOpen]);
+
+  const openCart = () => {
+    setIsMobileMenuOpen(false);
+    setIsCartOpen(true);
+  };
+
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
+          isScrolled || isMobileMenuOpen
             ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(0,0,0,0.08)]'
-            : 'bg-transparent'
+            : 'bg-white/80 backdrop-blur-sm sm:bg-transparent sm:backdrop-blur-0'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="flex items-center justify-between h-20">
+        <div className="mx-auto max-w-[1400px] px-5 sm:px-6 lg:px-10">
+          <div className="flex h-16 items-center justify-between sm:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="group -ml-2 flex min-h-11 items-center gap-2 rounded-full px-2 transition-transform duration-300 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+              aria-label="Go to Circle homepage"
+            >
               <img
                 src="/logo-light.svg"
-                alt="Circle"
-                className="h-10 w-10 transition-transform duration-300 group-hover:rotate-90"
+                alt=""
+                aria-hidden="true"
+                className="h-9 w-9 transition-transform duration-300 group-hover:rotate-90 group-focus-visible:rotate-90 group-active:rotate-90 sm:h-10 sm:w-10"
               />
-              <span className="text-lg font-light tracking-[0.3em] uppercase">
+              <span className="text-base font-light uppercase tracking-[0.24em] sm:text-lg sm:tracking-[0.3em]">
                 Circle
               </span>
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-10">
+            <div className="hidden items-center gap-8 lg:flex xl:gap-10">
               {navLinks.map(link => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm tracking-wide text-black/70 hover:text-black transition-colors duration-300 line-animate"
+                  className={`line-animate min-h-11 rounded-full px-1 py-3 text-sm tracking-wide transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black ${
+                    pathname === link.href ? 'text-black' : 'text-black/70 hover:text-black'
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -62,33 +97,35 @@ export default function Navbar() {
             </div>
 
             {/* Right Side */}
-            <div className="flex items-center gap-5">
-              {/* Cart */}
+            <div className="flex items-center gap-2 sm:gap-4">
               <button
-                onClick={() => setIsCartOpen(true)}
-                className="relative p-2 hover:bg-black/5 rounded-full transition-colors"
+                type="button"
+                onClick={openCart}
+                className="relative flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors hover:bg-black/5 active:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
                 aria-label="Open cart"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                 </svg>
                 {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 w-5 h-5 bg-black text-white text-[10px] flex items-center justify-center rounded-full font-medium">
+                  <span className="absolute right-0 top-0 flex h-5 w-5 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white">
                     {totalItems}
                   </span>
                 )}
               </button>
 
-              {/* Mobile Menu Toggle */}
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 hover:bg-black/5 rounded-full transition-colors"
-                aria-label="Toggle menu"
+                type="button"
+                onClick={() => setIsMobileMenuOpen(prev => !prev)}
+                className="flex min-h-11 min-w-11 items-center justify-center rounded-full transition-colors hover:bg-black/5 active:bg-black/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black lg:hidden"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-navigation"
               >
-                <div className="w-5 h-4 flex flex-col justify-between">
+                <div className="flex h-4 w-5 flex-col justify-between">
                   <span
                     className={`block h-[1.5px] bg-black transition-all duration-300 ${
-                      isMobileMenuOpen ? 'rotate-45 translate-y-[5px]' : ''
+                      isMobileMenuOpen ? 'translate-y-[7px] rotate-45' : ''
                     }`}
                   />
                   <span
@@ -98,7 +135,7 @@ export default function Navbar() {
                   />
                   <span
                     className={`block h-[1.5px] bg-black transition-all duration-300 ${
-                      isMobileMenuOpen ? '-rotate-45 -translate-y-[5px]' : ''
+                      isMobileMenuOpen ? '-translate-y-[7px] -rotate-45' : ''
                     }`}
                   />
                 </div>
@@ -110,24 +147,27 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 bg-white transition-all duration-500 lg:hidden ${
+        id="mobile-navigation"
+        className={`fixed inset-0 z-40 h-[100dvh] overflow-y-auto bg-white/98 px-5 pb-[calc(2rem+env(safe-area-inset-bottom))] pt-24 backdrop-blur-md transition-all duration-500 lg:hidden ${
           isMobileMenuOpen
-            ? 'opacity-100 pointer-events-auto'
-            : 'opacity-0 pointer-events-none'
+            ? 'pointer-events-auto opacity-100'
+            : 'pointer-events-none opacity-0'
         }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {navLinks.map((link, i) => (
+        <div className="mx-auto flex min-h-[calc(100dvh-8rem)] max-w-sm flex-col justify-center gap-3">
+          {[{ href: '/', label: 'Home' }, ...navLinks].map((link, i) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`text-3xl font-light tracking-wider transition-all duration-500 ${
-                isMobileMenuOpen
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
+              className={`rounded-2xl border px-6 py-4 text-2xl font-light tracking-wide transition-all duration-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black ${
+                pathname === link.href
+                  ? 'border-black bg-black text-white'
+                  : 'border-gray-100 bg-gray-50 text-black hover:border-gray-200 active:bg-gray-100'
+              } ${
+                isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
               }`}
-              style={{ transitionDelay: `${i * 80}ms` }}
+              style={{ transitionDelay: `${i * 70}ms` }}
             >
               {link.label}
             </Link>
