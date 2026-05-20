@@ -33,7 +33,7 @@ export default function CheckoutPage() {
     return (
       <div className="pt-20">
         <section className="py-32 text-center">
-          <div className="max-w-lg mx-auto px-6">
+          <div className="max-w-lg mx-auto px-5 sm:px-6">
             <AnimatedSection>
               <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
                 <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -49,7 +49,7 @@ export default function CheckoutPage() {
               </p>
               <Link
                 href="/shop"
-                className="inline-block px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
+                className="inline-block px-7 sm:px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
               >
                 Continue Shopping
               </Link>
@@ -64,7 +64,7 @@ export default function CheckoutPage() {
     return (
       <div className="pt-20">
         <section className="py-32 text-center">
-          <div className="max-w-lg mx-auto px-6">
+          <div className="max-w-lg mx-auto px-5 sm:px-6">
             <h1 className="text-3xl font-light mb-4">Your cart is empty</h1>
             <Link href="/shop" className="text-sm underline underline-offset-4 text-black/60 hover:text-black">
               Go to Shop
@@ -77,13 +77,13 @@ export default function CheckoutPage() {
 
   return (
     <div className="pt-20">
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+      <section className="py-12 sm:py-16 md:py-24">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <h1 className="text-3xl md:text-5xl font-light tracking-tight mb-12">Checkout</h1>
           </AnimatedSection>
 
-          <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-5 gap-8 sm:gap-12 lg:gap-16">
             {/* Form */}
             <div className="lg:col-span-3">
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -91,7 +91,7 @@ export default function CheckoutPage() {
                   <h2 className="text-sm tracking-[0.2em] uppercase text-black/40 mb-6">
                     Contact Information
                   </h2>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <input
                       type="text"
                       name="firstName"
@@ -99,7 +99,7 @@ export default function CheckoutPage() {
                       required
                       value={form.firstName}
                       onChange={handleChange}
-                      className="col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
+                      className="sm:col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
                     />
                     <input
                       type="text"
@@ -108,7 +108,7 @@ export default function CheckoutPage() {
                       required
                       value={form.lastName}
                       onChange={handleChange}
-                      className="col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
+                      className="sm:col-span-1 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
                     />
                     <input
                       type="email"
@@ -117,7 +117,7 @@ export default function CheckoutPage() {
                       required
                       value={form.email}
                       onChange={handleChange}
-                      className="col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
+                      className="sm:col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
                     />
                     <input
                       type="tel"
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
                       required
                       value={form.phone}
                       onChange={handleChange}
-                      className="col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
+                      className="sm:col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -135,7 +135,7 @@ export default function CheckoutPage() {
                   <h2 className="text-sm tracking-[0.2em] uppercase text-black/40 mb-6">
                     Shipping Address
                   </h2>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <input
                       type="text"
                       name="address"
@@ -143,7 +143,7 @@ export default function CheckoutPage() {
                       required
                       value={form.address}
                       onChange={handleChange}
-                      className="col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
+                      className="sm:col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
                     />
                     <input
                       type="text"
@@ -170,7 +170,7 @@ export default function CheckoutPage() {
                       required
                       value={form.pincode}
                       onChange={handleChange}
-                      className="col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
+                      className="sm:col-span-2 px-4 py-3.5 border border-gray-200 text-sm focus:border-black outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -190,7 +190,7 @@ export default function CheckoutPage() {
 
             {/* Order Summary */}
             <div className="lg:col-span-2">
-              <div className="bg-gray-50 p-8 sticky top-28">
+              <div className="bg-gray-50 p-6 sm:p-8 lg:sticky lg:top-28">
                 <h2 className="text-sm tracking-[0.2em] uppercase text-black/40 mb-6">
                   Order Summary
                 </h2>
