@@ -20,7 +20,7 @@ export default function AnimatedSection({
 
   const animations = {
     'fade-up': {
-      initial: 'opacity-0 translate-y-10',
+      initial: 'opacity-0 translate-y-8 sm:translate-y-10',
       visible: 'opacity-100 translate-y-0',
     },
     'fade-in': {
@@ -28,11 +28,11 @@ export default function AnimatedSection({
       visible: 'opacity-100',
     },
     'slide-left': {
-      initial: 'opacity-0 translate-x-16',
+      initial: 'opacity-0 translate-x-6 sm:translate-x-16',
       visible: 'opacity-100 translate-x-0',
     },
     'slide-right': {
-      initial: 'opacity-0 -translate-x-16',
+      initial: 'opacity-0 -translate-x-6 sm:-translate-x-16',
       visible: 'opacity-100 translate-x-0',
     },
     'scale-in': {
@@ -46,7 +46,7 @@ export default function AnimatedSection({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
+      className={`transition-all duration-700 ease-out motion-reduce:transform-none motion-reduce:transition-none ${
         isInView ? visible : initial
       } ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
