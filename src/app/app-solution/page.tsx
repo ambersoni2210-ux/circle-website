@@ -7,9 +7,9 @@ export default function AppSolutionPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-black text-white py-24 md:py-32 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-black text-white py-16 sm:py-20 lg:py-32 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
+          <div className="grid lg:grid-cols-2 gap-10 sm:gap-8 sm:gap-12 lg:gap-16 items-center">
             <AnimatedSection>
               <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-4">Store Platform</p>
               <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6">
@@ -22,13 +22,13 @@ export default function AppSolutionPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="/contact"
-                  className="px-10 py-4 bg-white text-black text-sm tracking-[0.2em] uppercase hover:bg-gray-100 transition-colors text-center"
+                  className="px-7 sm:px-10 py-4 bg-white text-black text-sm tracking-[0.2em] uppercase hover:bg-gray-100 transition-colors text-center"
                 >
                   Book a Demo
                 </Link>
                 <a
                   href="#features"
-                  className="px-10 py-4 border border-white/20 text-sm tracking-[0.2em] uppercase hover:bg-white/10 transition-colors text-center"
+                  className="px-7 sm:px-10 py-4 border border-white/20 text-sm tracking-[0.2em] uppercase hover:bg-white/10 transition-colors text-center"
                 >
                   See Features
                 </a>
@@ -91,11 +91,11 @@ export default function AppSolutionPage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section id="features" className="py-16 sm:py-20 lg:py-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Features</p>
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-16">
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 sm:mb-16">
               Built Around<br />Merchandise Discovery
             </h2>
           </AnimatedSection>
@@ -134,7 +134,7 @@ export default function AppSolutionPage() {
               },
             ].map((feature, i) => (
               <AnimatedSection key={i} delay={i * 100}>
-                <div className="bg-white p-10 md:p-12 hover:bg-gray-50 transition-colors duration-300">
+                <div className="bg-white p-6 sm:p-8 md:p-12 hover:bg-gray-50 transition-colors duration-300">
                   <span className="text-3xl mb-6 block">{feature.icon}</span>
                   <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
                   <p className="text-sm text-black/50 font-light leading-relaxed">
@@ -148,9 +148,9 @@ export default function AppSolutionPage() {
       </section>
 
       {/* Principles */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { label: 'Clear Product Presentation' },
               { label: 'Simple Drop Communication' },
@@ -169,11 +169,11 @@ export default function AppSolutionPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 md:py-32">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-16 sm:py-20 lg:py-32">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-black/40 mb-3">Process</p>
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-16">
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 sm:mb-16">
               From Idea to Storefront
             </h2>
           </AnimatedSection>
@@ -209,8 +209,8 @@ export default function AppSolutionPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 md:py-32 bg-black text-white text-center">
-        <div className="max-w-2xl mx-auto px-6">
+      <section className="py-16 sm:py-20 lg:py-32 bg-black text-white text-center">
+        <div className="max-w-2xl mx-auto px-5 sm:px-6">
           <AnimatedSection>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-6">
               Give your circle a digital home
@@ -220,7 +220,7 @@ export default function AppSolutionPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-block px-12 py-5 bg-white text-black text-sm tracking-[0.2em] uppercase hover:bg-gray-100 transition-colors"
+              className="inline-block px-8 sm:px-12 py-4 sm:py-5 bg-white text-black text-sm tracking-[0.2em] uppercase hover:bg-gray-100 transition-colors"
             >
               Book a Demo
             </Link>
