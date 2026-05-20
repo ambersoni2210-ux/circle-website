@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-black text-white">
       {/* CTA Band */}
       <div className="border-b border-white/10">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-20 text-center">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 py-20 text-center">
           <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-6">
             Ready to wear your<br />circle with pride?
           </h2>
@@ -17,13 +17,13 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="px-10 py-4 bg-white text-black text-sm tracking-widest uppercase hover:bg-gray-100 transition-colors"
+              className="w-full sm:w-auto px-7 sm:px-10 py-4 bg-white text-black text-sm tracking-widest uppercase hover:bg-gray-100 transition-colors"
             >
               Talk to Us
             </Link>
             <Link
               href="/shop"
-              className="px-10 py-4 border border-white/20 text-sm tracking-widest uppercase hover:bg-white/10 transition-colors"
+              className="w-full sm:w-auto px-7 sm:px-10 py-4 border border-white/20 text-sm tracking-widest uppercase hover:bg-white/10 transition-colors"
             >
               Shop Now
             </Link>
@@ -32,11 +32,11 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+      <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
           {/* Brand */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1 mb-6 lg:mb-0">
-            <Link href="/" className="flex items-center gap-2 mb-5">
+          <div className="sm:col-span-2 md:col-span-4 lg:col-span-1 mb-6 lg:mb-0">
+            <Link href="/" className="inline-flex min-h-11 items-center gap-2 mb-5 rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
               <img src="/logo-dark.svg" alt="Circle" className="h-9 w-9" />
               <span className="text-base font-light tracking-[0.3em] uppercase">Circle</span>
             </Link>
