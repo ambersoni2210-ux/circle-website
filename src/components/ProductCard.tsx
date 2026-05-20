@@ -11,36 +11,36 @@ export default function ProductCard({ product }: ProductCardProps) {
   const { addItem } = useCart();
 
   return (
-    <div className="group">
+    <article className="group h-full min-w-0">
       {/* Image */}
-      <div className="relative aspect-[3/4] bg-gray-50 overflow-hidden mb-4">
+      <div className="relative mb-4 aspect-[3/4] overflow-hidden bg-gray-50">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        {/* Badge */}
         {product.badge && (
-          <span className="absolute top-3 left-3 px-3 py-1 bg-black text-white text-[10px] tracking-widest uppercase">
+          <span className="absolute left-3 top-3 bg-black px-3 py-1 text-[10px] uppercase tracking-widest text-white">
             {product.badge}
           </span>
         )}
-        {/* Quick Add */}
         <button
+          type="button"
           onClick={() => addItem(product, product.sizes?.[1], product.colors?.[0])}
-          className="absolute bottom-0 left-0 right-0 bg-black text-white text-xs tracking-[0.2em] uppercase py-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-gray-900"
+          className="absolute bottom-0 left-0 right-0 min-h-11 bg-black py-3.5 text-xs uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-gray-900 active:bg-gray-800 md:translate-y-full md:group-hover:translate-y-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
         >
           Add to Cart
         </button>
       </div>
 
       {/* Info */}
-      <div className="space-y-1">
-        <h3 className="text-sm font-medium">{product.name}</h3>
+      <div className="min-w-0 space-y-1 pr-1">
+        <h3 className="truncate text-sm font-medium leading-6">{product.name}</h3>
         <p className="text-sm text-gray-500">
           &#8377;{product.price.toLocaleString('en-IN')}
         </p>
       </div>
-    </div>
+    </article>
   );
 }
