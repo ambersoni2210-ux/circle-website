@@ -9,8 +9,8 @@ export default function CartPage() {
 
   return (
     <div className="pt-20">
-      <section className="py-16 md:py-24">
-        <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
+      <section className="py-12 sm:py-16 md:py-24">
+        <div className="max-w-[1000px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <h1 className="text-3xl md:text-5xl font-light tracking-tight mb-2">Your Cart</h1>
             <p className="text-black/40 font-light mb-12">
@@ -24,7 +24,7 @@ export default function CartPage() {
                 <p className="text-black/30 font-light text-lg mb-6">Your cart is empty</p>
                 <Link
                   href="/shop"
-                  className="inline-block px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
+                  className="inline-block min-h-11 px-7 sm:px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
                 >
                   Continue Shopping
                 </Link>
@@ -43,7 +43,7 @@ export default function CartPage() {
               {/* Items */}
               <div className="divide-y divide-gray-100">
                 {items.map(item => (
-                  <div key={item.product.id} className="py-6 grid grid-cols-12 gap-4 items-center">
+                  <div key={item.product.id} className="py-6 grid grid-cols-12 gap-x-4 gap-y-4 items-center">
                     {/* Product */}
                     <div className="col-span-12 md:col-span-6 flex gap-4">
                       <div className="w-20 h-24 bg-gray-50 overflow-hidden flex-shrink-0">
@@ -98,7 +98,7 @@ export default function CartPage() {
 
               {/* Summary */}
               <div className="mt-8 pt-8 border-t border-gray-200">
-                <div className="max-w-xs ml-auto space-y-3">
+                <div className="max-w-none sm:max-w-xs sm:ml-auto space-y-3">
                   <div className="flex justify-between text-sm">
                     <span className="text-black/50">Subtotal</span>
                     <span>&#8377;{totalPrice.toLocaleString('en-IN')}</span>
@@ -113,7 +113,7 @@ export default function CartPage() {
                   </div>
                   <Link
                     href="/checkout"
-                    className="block w-full bg-black text-white text-center py-4 text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors mt-4"
+                    className="block min-h-11 w-full bg-black text-white text-center py-4 text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors mt-4"
                   >
                     Proceed to Checkout
                   </Link>
