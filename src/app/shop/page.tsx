@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
 import ProductCard from '@/components/ProductCard';
 import { products, categories } from '@/data/products';
@@ -22,8 +23,8 @@ export default function ShopPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
-      <section className="bg-black text-white py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="bg-black text-white py-16 sm:py-20 lg:py-28">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           <AnimatedSection>
             <p className="text-xs tracking-[0.3em] uppercase text-white/40 mb-3">Shop</p>
             <h1 className="text-4xl md:text-6xl font-light tracking-tight">
@@ -37,8 +38,8 @@ export default function ShopPage() {
       </section>
 
       {/* Filters & Products */}
-      <section className="py-12 md:py-16">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      <section className="py-10 sm:py-12 md:py-16">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10">
           {/* Filter Bar */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 pb-8 border-b border-gray-100">
             {/* Categories */}
@@ -77,7 +78,7 @@ export default function ShopPage() {
           </p>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {sorted.map((product, i) => (
               <AnimatedSection key={product.id} delay={i * 50}>
                 <ProductCard product={product} />
@@ -94,8 +95,8 @@ export default function ShopPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+      <section className="py-16 sm:py-20 bg-gray-50">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-6 lg:px-10 text-center">
           <AnimatedSection>
             <h2 className="text-2xl md:text-4xl font-light tracking-tight mb-4">
               Need custom merch for your circle?
@@ -103,12 +104,12 @@ export default function ShopPage() {
             <p className="text-black/40 font-light mb-8 max-w-lg mx-auto">
               Create custom pieces for a team, community, event, creator drop, or campus requirement.
             </p>
-            <a
+            <Link
               href="/b2b"
-              className="inline-block px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
+              className="inline-block px-7 sm:px-10 py-4 bg-black text-white text-sm tracking-[0.2em] uppercase hover:bg-gray-900 transition-colors"
             >
               Partner With Us
-            </a>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
