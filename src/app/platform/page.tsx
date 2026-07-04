@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
-import { brandImages } from '@/config/images';
+import { brandImages, pageImages } from '@/config/images';
 
 export const metadata: Metadata = {
   title: 'Custom Merchandise Stores for Communities',
@@ -26,7 +26,7 @@ const storeTypes = [
 ];
 
 export default function PlatformPage() {
-  const platform = brandImages.platformStorefront;
+  const platform = brandImages.platformStore;
   return (
     <div className="bg-circle-paper pt-24 sm:pt-28">
       <section className="container-c py-12 sm:py-20">

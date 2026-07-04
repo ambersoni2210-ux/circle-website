@@ -36,15 +36,15 @@ export default function AboutPage() {
           <p className="mt-8 max-w-3xl text-lg leading-9 text-black/65">
             Circle was built for the products people keep because they mean something. Objects become meaningful when they are connected to people, places and moments.
           </p>
-          <div className="mt-8 grid gap-2 text-lg text-black/70 sm:grid-cols-2">
+          <div className="mt-8 flex flex-wrap gap-3">
             {objects.map((o) => (
-              <p key={o} className="font-display text-xl">{o}</p>
+              <span key={o} className="rounded-full bg-circle-tint px-5 py-2.5 font-display text-base font-medium text-black/75">{o}</span>
             ))}
           </div>
         </AnimatedSection>
         <AnimatedSection delay={140} className="mt-12">
           <div className="overflow-hidden rounded-[2.5rem] shadow-soft">
-            <Image src={brandImages.community.src} alt={brandImages.community.alt} width={1200} height={900} className="w-full object-cover" />
+            <Image src={brandImages.aboutTeam.src} alt={brandImages.aboutTeam.alt} width={1200} height={900} className="w-full object-cover" />
           </div>
         </AnimatedSection>
       </section>
@@ -85,9 +85,9 @@ export default function AboutPage() {
             <p className="kicker text-black/45">What we believe</p>
             <h2 className="display-md mt-4">What shapes the work.</h2>
           </AnimatedSection>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mt-10 flex max-w-5xl flex-wrap justify-center gap-4">
             {values.map(([title, text], i) => (
-              <AnimatedSection key={title} delay={i * 55} className="rounded-[1.75rem] bg-white p-6 shadow-[0_1px_0_rgba(0,0,0,0.05)]">
+              <AnimatedSection key={title} delay={i * 55} className="w-full rounded-[1.75rem] bg-white p-6 shadow-[0_1px_0_rgba(0,0,0,0.05)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]">
                 <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-full bg-circle-accent font-display text-sm font-bold text-white">{i + 1}</div>
                 <h3 className="font-display text-xl font-semibold">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-black/58">{text}</p>

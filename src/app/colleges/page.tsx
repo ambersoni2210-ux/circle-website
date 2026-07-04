@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
-import { categoryImages } from '@/config/images';
+import { pageImages } from '@/config/images';
 
 export const metadata: Metadata = {
   title: 'College Merchandise, Batch Hoodies and Campus Stores',
@@ -19,7 +19,7 @@ const offerings = [
 ];
 
 export default function CollegesPage() {
-  const img = categoryImages.colleges;
+  const img = pageImages.colleges;
   return (
     <div className="bg-circle-paper pt-24 sm:pt-28">
       <section className="container-c py-12 sm:py-20">

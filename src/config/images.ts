@@ -1,77 +1,76 @@
 /* =====================================================================
    CIRCLE - CENTRAL IMAGE CONFIGURATION
-   =====================================================================
-   ONE FILE controls every image on the site. Change a path here and it
-   changes everywhere. Real photos live in /public/images/photos and the
-   brand SVG visuals live in /public/images/svg.
-
-   To swap an image: change its "src" below.
-     - Uploaded file: put it in public/images/photos/ then use
-       src: "/images/photos/your-file.jpg"   (slash first, no "public")
-     - External URL: paste it as src and add the domain to next.config.js
+   One file controls every image. Change a "src" here and it changes
+   everywhere. Real photos live in /public/images/photos.
+   To swap: put a file in public/images/photos/ and set src to
+   "/images/photos/your-file.jpg" (slash first, no "public").
    Full guide: IMAGE_REPLACEMENT_GUIDE.md
    ===================================================================== */
 
 export type ImageAsset = { src: string; alt: string };
 
-/* ---------------------------------------------------------------------
-   1. PRODUCT IMAGES  (used on shop cards + product pages)
-   Real photos where we have them; clean SVG visuals otherwise.
-   --------------------------------------------------------------------- */
+/* 1. PRODUCT IMAGES (shop cards + product pages) */
 export const productImages: Record<string, ImageAsset> = {
-  premiumHoodie: { src: "/images/photos/apparel-hero.jpg", alt: "Cobalt blue premium hoodie styled on a colourful background" },
-  oversizedTshirt: { src: "/images/photos/tee-flatlay.jpg", alt: "Folded plain t-shirts arranged as a flat lay" },
-  varsityJacket: { src: "/images/photos/varsity-rack.jpg", alt: "Blue varsity jacket on a studio rack" },
-  crewneckSweatshirt: { src: "/images/photos/sweatshirt-fold.jpg", alt: "Folded grey crewneck sweatshirt" },
-  gymTshirt: { src: "/images/photos/hoodies-olive.jpg", alt: "Row of premium sweatshirts on hangers" },
-  sportsJersey: { src: "/images/photos/team-huddle.jpg", alt: "Sports team in a huddle wearing matching jerseys" },
-  gymShorts: { src: "/images/svg/gym-shorts.svg", alt: "Circle gym shorts in black with a small brand mark" },
-  trackSuit: { src: "/images/photos/runners.jpg", alt: "Two runners training outdoors in team kit" },
-  steelBottle: { src: "/images/photos/bottle-desk.jpg", alt: "Insulated steel water bottle on a work desk" },
-  tumbler: { src: "/images/svg/tumbler.svg", alt: "Circle travel tumbler in matte black with a sip lid" },
-  ceramicMug: { src: "/images/svg/ceramic-mug.svg", alt: "Circle ceramic mug in black with a circular brand mark" },
-  cap: { src: "/images/photos/cap-blue.jpg", alt: "Cobalt blue cap resting on grass" },
-  backpack: { src: "/images/svg/backpack.svg", alt: "Circle everyday backpack in black" },
-  gymBag: { src: "/images/photos/duffel-bag.jpg", alt: "Blue duffel gym bag styled on an orange background" },
-  utilityPouch: { src: "/images/svg/utility-pouch.svg", alt: "Circle zip utility pouch in black" },
-  notebookDiary: { src: "/images/svg/notebook-diary.svg", alt: "Circle hardcover notebook in black with a circular deboss" },
-  premiumPen: { src: "/images/svg/premium-pen.svg", alt: "Circle metal pen in black" },
-  stickerPack: { src: "/images/svg/sticker-pack.svg", alt: "Circle die-cut sticker pack in black and cream" },
-  umbrella: { src: "/images/svg/umbrella.svg", alt: "Circle compact umbrella in black" },
+  premiumHoodie: { src: "/images/photos/p-hoodie.jpg", alt: "Premium navy hoodie on a soft studio background" },
+  oversizedTshirt: { src: "/images/photos/p-tshirt.jpg", alt: "Oversized t-shirt with a chest print" },
+  varsityJacket: { src: "/images/photos/p-varsity.jpg", alt: "Red and cream varsity jacket" },
+  crewneckSweatshirt: { src: "/images/photos/p-sweatshirt.jpg", alt: "Black crewneck sweatshirt" },
+  gymTshirt: { src: "/images/photos/p-gymtee.jpg", alt: "Red performance gym t-shirt" },
+  sportsJersey: { src: "/images/photos/p-jersey.jpg", alt: "Teal and navy sports jersey" },
+  gymShorts: { src: "/images/svg/gym-shorts.svg", alt: "Gym shorts in black with a small brand mark" },
+  trackSuit: { src: "/images/photos/p-tracksuit.jpg", alt: "Blue two-tone tracksuit jacket and trousers" },
+  steelBottle: { src: "/images/photos/p-bottle.jpg", alt: "Matte black insulated steel bottle" },
+  tumbler: { src: "/images/photos/p-tumbler.jpg", alt: "Black travel tumbler with a straw lid" },
+  ceramicMug: { src: "/images/photos/p-mug.jpg", alt: "Cream ceramic mug" },
+  cap: { src: "/images/photos/p-cap.jpg", alt: "Blue six-panel cap" },
+  backpack: { src: "/images/photos/p-backpack.jpg", alt: "Charcoal everyday backpack" },
+  gymBag: { src: "/images/photos/p-pouch.jpg", alt: "Black zip utility bag" },
+  utilityPouch: { src: "/images/photos/p-pouch.jpg", alt: "Black zip utility pouch" },
+  notebookDiary: { src: "/images/svg/notebook-diary.svg", alt: "Hardcover notebook in black with a circular deboss" },
+  premiumPen: { src: "/images/photos/p-pen.jpg", alt: "Black metal pen with a chrome tip" },
+  stickerPack: { src: "/images/svg/sticker-pack.svg", alt: "Die-cut sticker pack in black and cream" },
+  umbrella: { src: "/images/svg/umbrella.svg", alt: "Compact umbrella in black" },
 };
 
-/* ---------------------------------------------------------------------
-   2. HERO + BRAND IMAGES
-   --------------------------------------------------------------------- */
+/* 2. HERO + BRAND */
 export const brandImages: Record<string, ImageAsset> = {
-  heroApparel: { src: "/images/photos/apparel-hero.jpg", alt: "Cobalt blue Circle hoodie styled on a bright colourful background" },
-  heroBelonging: { src: "/images/photos/apparel-hero.jpg", alt: "Cobalt blue Circle hoodie on a bright colourful background" },
-  platformStorefront: { src: "/images/photos/dashboard-cart.jpg", alt: "A merchandise dashboard and shopping cart on a laptop" },
-  community: { src: "/images/photos/crowd-motion.jpg", alt: "A community of people moving together, shown with motion blur" },
+  hero: { src: "/images/photos/hero.jpg", alt: "Light blue premium Circle hoodie" },
+  platformStore: { src: "/images/photos/page-platform.jpg", alt: "A branded university merchandise store shown on screen" },
+  storeBlock: { src: "/images/photos/store-block.jpg", alt: "A branded online merchandise store" },
+  aboutPeople: { src: "/images/photos/page-about1.jpg", alt: "A team huddled together" },
+  aboutTeam: { src: "/images/photos/page-about2.jpg", alt: "A sports team huddle on the field at sunset" },
 };
 
-/* ---------------------------------------------------------------------
-   3. AUDIENCE / CATEGORY IMAGES
-   --------------------------------------------------------------------- */
-export const categoryImages: Record<string, ImageAsset> = {
-  colleges: { src: "/images/photos/grad-toss.jpg", alt: "Graduating students tossing their caps into a blue sky" },
-  corporate: { src: "/images/photos/welcome-kit.jpg", alt: "Branded corporate welcome kit boxes beside a screen" },
-  sports: { src: "/images/photos/rugby-huddle.jpg", alt: "A sports team huddled together on the field at sunset" },
-  events: { src: "/images/photos/crowd-motion.jpg", alt: "A crowd of people moving together at an event" },
-  alumni: { src: "/images/photos/campus-walk.jpg", alt: "A tree-lined campus walkway in spring" },
+/* 3. AUDIENCE CARDS (homepage "who we build for") */
+export const audienceImages: Record<string, ImageAsset> = {
+  colleges: { src: "/images/photos/aud-colleges.jpg", alt: "Students on a busy campus" },
+  corporate: { src: "/images/photos/aud-corporate.jpg", alt: "A modern corporate team space" },
+  sports: { src: "/images/photos/aud-sports.jpg", alt: "A sports team in matching kit" },
+  events: { src: "/images/photos/aud-events.jpg", alt: "A crowd at a live event" },
 };
 
-/* ---------------------------------------------------------------------
-   4. PRODUCT CATEGORY CARDS (products page + homepage range)
-   --------------------------------------------------------------------- */
+/* 4. PRODUCT CATEGORY CARDS */
 export const productCategoryImages: Record<string, ImageAsset> = {
-  apparel: { src: "/images/photos/hoodies-color-rack.jpg", alt: "Colourful pastel hoodies on a rack" },
-  sportswear: { src: "/images/photos/team-huddle.jpg", alt: "A sports team in matching jerseys" },
-  drinkware: { src: "/images/photos/bottle-desk.jpg", alt: "A steel bottle on a work desk" },
-  stationery: { src: "/images/photos/desk-laptop.jpg", alt: "A clean desk with a laptop and stationery" },
-  bags: { src: "/images/photos/duffel-bag.jpg", alt: "A blue duffel bag on an orange background" },
-  kits: { src: "/images/photos/welcome-kit.jpg", alt: "Branded welcome kit boxes" },
+  apparel: { src: "/images/photos/cat-apparel.jpg", alt: "Apparel on a rack" },
+  sportswear: { src: "/images/photos/cat-sportswear.jpg", alt: "Sportswear t-shirt" },
+  drinkware: { src: "/images/photos/cat-drinkware.jpg", alt: "A bottle styled on a warm background" },
+  stationery: { src: "/images/photos/cat-stationery.jpg", alt: "Colourful stationery flat lay" },
+  bags: { src: "/images/photos/cat-bags.jpg", alt: "A traveller with a backpack" },
+  kits: { src: "/images/photos/cat-kits.jpg", alt: "Folded apparel and kit items" },
 };
+
+/* 5. PAGE HERO IMAGES */
+export const pageImages: Record<string, ImageAsset> = {
+  colleges: { src: "/images/photos/page-college.jpg", alt: "Graduating students tossing caps into the sky" },
+  corporate: { src: "/images/photos/page-corporate.jpg", alt: "A corporate team in motion" },
+  platform: { src: "/images/photos/page-platform.jpg", alt: "A branded university merchandise store on screen" },
+};
+
+/* Homepage scrolling strip */
+export const scrollImages: ImageAsset[] = Array.from({ length: 10 }, (_, i) => ({
+  src: `/images/photos/scroll${i + 1}.jpg`,
+  alt: "Circle merchandise",
+}));
 
 export function getProductImage(key: string): ImageAsset {
   return productImages[key] ?? productImages.premiumHoodie;
