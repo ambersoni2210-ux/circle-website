@@ -6,7 +6,6 @@ import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 
 export default function ProductConfigurator({ product }: { product: Product }) {
-  const [color, setColor] = useState(product.colors[0] ?? 'Custom');
   const [size, setSize] = useState(product.sizes[0] ?? undefined);
   const [placement, setPlacement] = useState(product.placements[0] ?? 'Brand mark');
   const [quantity, setQuantity] = useState(product.moq);
@@ -24,17 +23,6 @@ export default function ProductConfigurator({ product }: { product: Product }) {
           <span className="rounded-full border border-black/12 px-4 py-2 text-black/65">Ships in {product.leadTime}</span>
         </div>
       </div>
-
-      <fieldset>
-        <legend className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-black/45">Color</legend>
-        <div className="flex flex-wrap gap-2">
-          {product.colors.map((item) => (
-            <button key={item} type="button" onClick={() => setColor(item)} aria-pressed={color === item} className={`min-h-11 rounded-full border px-4 text-sm transition ${color === item ? 'border-black bg-black text-white' : 'border-black/12 bg-white text-black hover:border-black/40'}`}>
-              {item}
-            </button>
-          ))}
-        </div>
-      </fieldset>
 
       {product.sizes.length > 0 && (
         <fieldset>
@@ -72,7 +60,7 @@ export default function ProductConfigurator({ product }: { product: Product }) {
       <div className="grid gap-3 sm:grid-cols-2">
         <button
           type="button"
-          onClick={() => addItem(product, { color, size, placement, quantity })}
+          onClick={() => addItem(product, { size, placement, quantity })}
           className="focus-ring min-h-12 rounded-full bg-black px-6 text-xs font-bold uppercase tracking-[0.16em] text-white transition hover:-translate-y-0.5"
         >
           Add to inquiry

@@ -43,8 +43,8 @@ export default function AboutPage() {
           </div>
         </AnimatedSection>
         <AnimatedSection delay={140} className="mt-12">
-          <div className="overflow-hidden rounded-[2.5rem] shadow-soft">
-            <Image src={brandImages.aboutTeam.src} alt={brandImages.aboutTeam.alt} width={1200} height={900} className="w-full object-cover" />
+          <div className="relative aspect-[16/9] overflow-hidden rounded-[2.5rem] shadow-soft">
+            <Image src={brandImages.aboutTeam.src} alt={brandImages.aboutTeam.alt} fill sizes="(max-width: 1024px) 100vw, 1100px" className="object-cover" />
           </div>
         </AnimatedSection>
       </section>

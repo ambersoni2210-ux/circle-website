@@ -33,8 +33,8 @@ export default function CollegesPage() {
             <Link href="/contact" className="btn btn-accent mt-8">Create campus merchandise</Link>
           </AnimatedSection>
           <AnimatedSection delay={120}>
-            <div className="overflow-hidden rounded-[2.25rem] bg-white p-3 shadow-soft">
-              <Image src={img.src} alt={img.alt} width={1200} height={900} className="rounded-[2rem]" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2.25rem] shadow-soft">
+              <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
             </div>
           </AnimatedSection>
         </div>

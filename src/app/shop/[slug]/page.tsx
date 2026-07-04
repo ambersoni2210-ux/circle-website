@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import ProductConfigurator from '@/components/ProductConfigurator';
-import { getProductBySlug, getRelatedProducts, products, productImageFor, productGalleryFor } from '@/data/products';
+import { getProductBySlug, getRelatedProducts, products, productImageFor } from '@/data/products';
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -34,16 +34,14 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   const related = getRelatedProducts(product, 4);
 
   return (
-    <div className="bg-circle-cream pt-24 sm:pt-28">
+    <div className="bg-circle-paper pt-24 sm:pt-28">
       <section className="container-c py-10 sm:py-16">
         <Link href="/shop" className="mb-7 inline-flex text-sm font-semibold text-black/52 transition hover:text-black">← Back to shop</Link>
         <div className="grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
-          <div className="grid gap-4 sm:grid-cols-2">
-            {productGalleryFor(product).map((image, index) => (
-              <div key={`${image.src}-${index}`} className={`relative overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)] ${index === 0 ? 'aspect-[4/5] sm:col-span-2 lg:col-span-2' : 'aspect-square'}`}>
-                <Image src={image.src} alt={image.alt} fill priority={index === 0} sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
-              </div>
-            ))}
+          <div>
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)]">
+              <Image src={productImageFor(product).src} alt={productImageFor(product).alt} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+            </div>
           </div>
 
           <div className="lg:sticky lg:top-28 lg:h-fit">

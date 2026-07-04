@@ -5,7 +5,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import IntroAnimation from '@/components/IntroAnimation';
-import PageTransition from '@/components/PageTransition';
 import { CartProvider } from '@/context/CartContext';
 
 const inter = Inter({
@@ -53,7 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
         <IntroAnimation />
-        <PageTransition />
         <a href="#main" className="skip-link">Skip to content</a>
         <CartProvider>
           <Navbar />

@@ -40,9 +40,7 @@ export default function PlatformPage() {
             <Link href="/contact" className="btn btn-accent mt-8">Build my store</Link>
           </AnimatedSection>
           <AnimatedSection delay={120}>
-            <div className="overflow-hidden rounded-[2.25rem] bg-white p-3 shadow-soft">
-              <Image src={platform.src} alt={platform.alt} width={1600} height={1000} className="rounded-[2rem]" />
-            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2.25rem] shadow-soft"><Image src={platform.src} alt={platform.alt} fill sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" /></div>
           </AnimatedSection>
         </div>
       </section>
