@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimatedSection from '@/components/AnimatedSection';
+import StoreSwitcher from '@/components/StoreSwitcher';
 import { pageImages } from '@/config/images';
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function CollegesPage() {
   const img = pageImages.colleges;
   return (
     <div className="bg-circle-paper pt-24 sm:pt-28">
+      <StoreSwitcher active="colleges" />
       <section className="container-c py-12 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <AnimatedSection>
