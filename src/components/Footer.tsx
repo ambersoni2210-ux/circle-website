@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CircleMark } from '@/components/CircleLogo';
+import LogoReplayLink from '@/components/LogoReplayLink';
 
 const groups = [
   {
@@ -35,12 +35,7 @@ export default function Footer() {
       <div className="container-c py-14 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_.7fr_.7fr_.7fr]">
           <div>
-            <Link href="/" className="group inline-flex items-center gap-3 rounded-full focus-ring" aria-label="Circle — go to homepage">
-              <span className="transition-transform duration-700 group-hover:rotate-180">
-                <CircleMark tone="light" size={40} />
-              </span>
-              <span className="text-lg font-medium tracking-[0.4em] text-circle-cream">CIRCLE</span>
-            </Link>
+            <LogoReplayLink tone="light" size={40} textClass="text-circle-paper" wordSize="text-lg" />
             <p className="mt-8 max-w-md font-display text-3xl leading-[1.1] text-white sm:text-4xl">
               Merchandise that carries belonging.
             </p>

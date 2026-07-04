@@ -12,7 +12,7 @@ import Link from 'next/link';
 type Tone = 'light' | 'dark';
 
 export function CircleEmblem({ tone = 'dark', size = 120 }: { tone?: Tone; size?: number }) {
-  const solid = tone === 'light' ? '#F6F3EE' : '#0A0A0A';
+  const solid = tone === 'light' ? '#FAFAFA' : '#0A0A0A';
   const gradId = `circle-stroke-${tone}`;
   return (
     <svg width={size} height={size} viewBox="0 0 200 200" fill="none" aria-hidden="true" className="circle-emblem">
@@ -40,7 +40,7 @@ export function CircleEmblem({ tone = 'dark', size = 120 }: { tone?: Tone; size?
 
 /* Small circle-only mark for the header (word sits beside it, stays legible). */
 export function CircleMark({ tone = 'dark', size = 30 }: { tone?: Tone; size?: number }) {
-  const solid = tone === 'light' ? '#F6F3EE' : '#0A0A0A';
+  const solid = tone === 'light' ? '#FAFAFA' : '#0A0A0A';
   const gradId = `mark-stroke-${tone}`;
   return (
     <svg width={size} height={size} viewBox="0 0 100 100" fill="none" aria-hidden="true" className="circle-mark shrink-0">

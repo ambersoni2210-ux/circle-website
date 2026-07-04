@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useCart } from '@/context/CartContext';
 import { CircleMark } from '@/components/CircleLogo';
+import { playCircleIntro } from '@/components/IntroAnimation';
 
 const navLinks = [
   { href: '/shop', label: 'Shop' },
@@ -55,7 +56,7 @@ export default function Navbar() {
       >
         <div className="container-c">
           <div className="flex h-[76px] items-center justify-between gap-4 pt-[env(safe-area-inset-top)] sm:h-20">
-            <Link href="/" aria-label="Circle — go to homepage" className="group focus-ring -ml-1 inline-flex items-center gap-3 rounded-full p-1 no-tap-highlight" onClick={() => setMenuOpen(false)}>
+            <Link href="/" aria-label="Circle — go to homepage" className="group focus-ring -ml-1 inline-flex items-center gap-3 rounded-full p-1 no-tap-highlight" onClick={() => { setMenuOpen(false); playCircleIntro(); }}>
               <span className="transition-transform duration-700 group-hover:rotate-180">
                 <CircleMark tone={useLight ? 'light' : 'dark'} size={32} />
               </span>
@@ -100,7 +101,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 className={`focus-ring hidden min-h-11 items-center rounded-full px-5 text-xs font-bold uppercase tracking-[0.14em] transition sm:inline-flex ${
-                  useLight ? 'bg-white text-black hover:-translate-y-0.5' : 'bg-black text-white hover:-translate-y-0.5'
+                  useLight ? 'bg-white text-black hover:-translate-y-0.5' : 'bg-circle-accent text-white hover:-translate-y-0.5'
                 }`}
               >
                 Start a store
