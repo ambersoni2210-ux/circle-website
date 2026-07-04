@@ -22,7 +22,7 @@ const offerings = [
 export default function CollegesPage() {
   const img = pageImages.colleges;
   return (
-    <div className="bg-circle-paper pt-24 sm:pt-28">
+    <div className="bg-circle-paper pt-20 sm:pt-28">
       <StoreSwitcher active="colleges" />
       <section className="container-c py-12 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">

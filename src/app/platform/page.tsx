@@ -19,17 +19,17 @@ const steps = [
 ];
 
 const storeTypes = [
-  { title: 'Campus store', text: 'For students, batches, clubs, departments, sports teams, fests and alumni.', href: '/colleges' },
-  { title: 'Company store', text: 'For employees, HR programs, events, rewards and gifting.', href: '/corporate' },
-  { title: 'Sports team store', text: 'For players, coaches, fans and team communities.', href: '' },
-  { title: 'Alumni store', text: 'For reunions, keepsakes and long term connection.', href: '' },
-  { title: 'Event store', text: 'For fests, conferences, creator events, volunteers and limited edition drops.', href: '' },
+  { title: 'Campus store', text: 'For students, batches, clubs, departments, sports teams, fests and alumni.' },
+  { title: 'Company store', text: 'For employees, HR programs, events, rewards and gifting.' },
+  { title: 'Sports team store', text: 'For players, coaches, fans and team communities.' },
+  { title: 'Alumni store', text: 'For reunions, keepsakes and long term connection.' },
+  { title: 'Event store', text: 'For fests, conferences, creator events, volunteers and limited edition drops.' },
 ];
 
 export default function PlatformPage() {
   const platform = brandImages.platformStore;
   return (
-    <div className="bg-circle-paper pt-24 sm:pt-28">
+    <div className="bg-circle-paper pt-20 sm:pt-28">
       <StoreSwitcher active="platform" />
       <section className="container-c py-12 sm:py-20">
         <div className="grid gap-10 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
@@ -89,18 +89,8 @@ export default function PlatformPage() {
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {storeTypes.map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 55} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:bg-white/[0.08]">
-                {item.href ? (
-                  <Link href={item.href} className="focus-ring group block rounded-xl">
-                    <h3 className="font-display text-2xl font-semibold">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-white/60">{item.text}</p>
-                    <p className="mt-5 text-xs font-bold uppercase tracking-[0.12em] text-white/72 transition group-hover:text-white">Explore now →</p>
-                  </Link>
-                ) : (
-                  <>
-                    <h3 className="font-display text-2xl font-semibold">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-white/60">{item.text}</p>
-                  </>
-                )}
+                <h3 className="font-display text-2xl font-semibold">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-white/60">{item.text}</p>
               </AnimatedSection>
             ))}
           </div>
