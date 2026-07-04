@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
 import { useCart } from '@/context/CartContext';
-import { CircleMark } from '@/components/CircleLogo';
+import { CircleEmblem } from '@/components/CircleLogo';
 import { products } from '@/data/products';
 
 const platformChildren = [
@@ -66,9 +66,8 @@ export default function Navbar() {
       <nav className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? 'border-b border-black/8 bg-white/85 backdrop-blur-xl' : 'bg-white/65 backdrop-blur-md'}`}>
         <div className="container-c">
           <div className="flex h-[68px] items-center justify-between gap-3 sm:h-[76px]">
-            <Link href="/" aria-label="Circle, go to homepage" className="focus-ring flex items-center gap-2.5 rounded-full p-1">
-              <CircleMark tone="dark" size={30} />
-              <span className="font-display text-lg font-bold tracking-[0.28em] text-circle-ink">CIRCLE</span>
+            <Link href="/" aria-label="Circle, go to homepage" className="focus-ring flex items-center rounded-full p-1">
+              <CircleEmblem tone="dark" size={50} />
             </Link>
 
             {/* Desktop links */}

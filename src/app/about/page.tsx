@@ -97,20 +97,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="pb-20">
-        <div className="container-c">
-          <AnimatedSection className="on-dark rounded-[2.25rem] bg-black p-7 text-white sm:p-10">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">Build something your circle will remember.</h2>
-                <p className="mt-3 text-white/60">Tell us about your group, product idea or store requirement.</p>
-              </div>
-              <Link href="/contact" className="btn btn-accent shrink-0">Talk to Circle</Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+
     </div>
   );
 }

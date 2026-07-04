@@ -24,7 +24,6 @@ export const productImages: Record<string, ImageAsset> = {
   ceramicMug: { src: "/images/photos/p-mug.jpg", alt: "Cream ceramic mug" },
   cap: { src: "/images/photos/p-cap.jpg", alt: "Blue six-panel cap" },
   backpack: { src: "/images/photos/p-backpack.jpg", alt: "Charcoal everyday backpack" },
-  gymBag: { src: "/images/photos/p-pouch.jpg", alt: "Black zip utility bag" },
   utilityPouch: { src: "/images/photos/p-pouch.jpg", alt: "Black zip utility pouch" },
   notebookDiary: { src: "/images/svg/notebook-diary.svg", alt: "Hardcover notebook in black with a circular deboss" },
   premiumPen: { src: "/images/photos/p-pen.jpg", alt: "Black metal pen with a chrome tip" },

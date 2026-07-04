@@ -11,6 +11,13 @@ const audiences = [
   ['Events', 'Products people remember after the event.', '/platform', 'yellow', audienceImages.events],
 ];
 
+const audienceColorClasses: Record<string, { dot: string; panel: string }> = {
+  purple: { dot: 'bg-circle-purple', panel: 'bg-circle-purple-soft' },
+  sky: { dot: 'bg-circle-sky', panel: 'bg-circle-sky-soft' },
+  green: { dot: 'bg-circle-green', panel: 'bg-circle-green-soft' },
+  yellow: { dot: 'bg-circle-yellow', panel: 'bg-circle-yellow-soft' },
+};
+
 const categories = [
   ['Apparel', 'Hoodies, tees, sweatshirts and jackets.', productCategoryImages.apparel],
   ['Sportswear', 'Jerseys, tracksuits and training wear.', productCategoryImages.sportswear],
@@ -29,8 +36,8 @@ export default function HomePage() {
         <div className="container-c">
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
             <AnimatedSection>
-              <span className="inline-flex items-center gap-2 rounded-full bg-circle-tint px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-circle-accent">
-                Custom merchandise and branded stores
+              <span className="inline-flex max-w-full items-center gap-2 whitespace-nowrap rounded-full bg-circle-tint px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-circle-accent sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.16em]">
+                Custom merch stores
               </span>
               <h1 className="display-xl mt-6">Merchandise that carries belonging.</h1>
               <p className="mt-6 max-w-xl text-lg leading-8 text-black/62">
@@ -70,21 +77,29 @@ export default function HomePage() {
             <h2 className="display-md mt-4">Made for the groups people are proud to represent.</h2>
           </AnimatedSection>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {audiences.map(([title, text, href, color, image]: any, i) => (
-              <AnimatedSection key={title} delay={i * 60}>
-                <Link href={href} className="group block h-full overflow-hidden rounded-[2rem] border border-black/8 bg-white transition hover:-translate-y-1 hover:shadow-soft">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image src={image.src} alt={image.alt} fill sizes="(max-width:1024px) 50vw, 25vw" className="object-cover transition duration-700 group-hover:scale-105" />
-                    <span className={`absolute left-4 top-4 h-7 w-7 rounded-full bg-circle-${color}`} />
-                  </div>
-                  <div className={`p-5 bg-circle-${color}-soft`}>
-                    <h3 className="font-display text-xl font-semibold">{title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-black/60">{text}</p>
-                  </div>
-                </Link>
-              </AnimatedSection>
-            ))}
+            {audiences.map(([title, text, href, color, image]: any, i) => {
+              const colors = audienceColorClasses[color] ?? audienceColorClasses.purple;
+              return (
+                <AnimatedSection key={title} delay={i * 60}>
+                  <Link href={href} className="group block h-full overflow-hidden rounded-[2rem] border border-black/8 bg-white transition hover:-translate-y-1 hover:shadow-soft">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image src={image.src} alt={image.alt} fill sizes="(max-width:1024px) 50vw, 25vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                      <span className={`absolute left-4 top-4 h-7 w-7 rounded-full ${colors.dot}`} />
+                    </div>
+                    <div className={`p-5 ${colors.panel}`}>
+                      <h3 className="font-display text-xl font-semibold">{title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-black/60">{text}</p>
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              );
+            })}
           </div>
+          <AnimatedSection delay={260} className="mt-9 text-center">
+            <Link href="/platform" className="inline-flex items-center gap-2 rounded-full bg-circle-tint px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-circle-accent transition hover:-translate-y-0.5 hover:bg-circle-tint-2">
+              Explore now <span aria-hidden="true">→</span>
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -96,7 +111,7 @@ export default function HomePage() {
               <p className="kicker text-black/45">Product range</p>
               <h2 className="display-md mt-4">Products people actually want to use.</h2>
             </div>
-            <Link href="/shop" className="btn btn-outline">View all products</Link>
+            <Link href="/shop" className="inline-flex items-center gap-2 rounded-full bg-white/60 px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-circle-accent backdrop-blur transition hover:-translate-y-0.5 hover:bg-white">View all products <span aria-hidden="true">→</span></Link>
           </AnimatedSection>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {categories.map(([title, text, image]: any, i) => (

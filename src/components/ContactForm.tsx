@@ -24,8 +24,7 @@ export default function ContactForm() {
       {submitted ? (
         <div className="py-10 text-center">
           <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-black text-white">✓</div>
-          <h3 className="font-display text-3xl font-semibold tracking-[-0.055em]">Thanks. Circle will get back to you.</h3>
-          <p className="mt-3 text-sm leading-6 text-black/55">Your email app should open with the message details. Send it to connect@getcircle.in.</p>
+          <h3 className="font-display text-3xl font-semibold tracking-[-0.055em]">Thanks, we will get back to you.</h3>
         </div>
       ) : (
         <div className="space-y-5">

@@ -110,20 +110,7 @@ export default function PlatformPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-24">
-        <div className="container-c">
-          <AnimatedSection className="on-dark rounded-[2.25rem] bg-black p-7 text-white sm:p-10">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">Give your people one official place to find merchandise.</h2>
-                <p className="mt-3 text-white/60">Tell us who the store is for, what products you want and when you want to launch.</p>
-              </div>
-              <Link href="/contact" className="btn btn-accent shrink-0">Start a store inquiry</Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+
     </div>
   );
 }

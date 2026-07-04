@@ -1,22 +1,21 @@
 'use client';
 
 import Link from 'next/link';
+import { CircleEmblem } from '@/components/CircleLogo';
 
-/* Footer logo: clean CIRCLE wordmark linking home. (No intro replay: the
-   intro only plays on first load now.) */
+/* Logo link for footer and brand surfaces. No extra text next to the mark. */
 export default function LogoReplayLink({
   tone = 'dark',
-  wordSize = 'text-2xl',
+  size = 96,
 }: {
   tone?: 'light' | 'dark';
   wordSize?: string;
   size?: number;
   textClass?: string;
 }) {
-  const color = tone === 'light' ? 'text-circle-paper' : 'text-circle-ink';
   return (
-    <Link href="/" aria-label="Circle, go to homepage" className={`focus-ring inline-flex items-center rounded-full ${color}`}>
-      <span className={`font-display font-bold tracking-[0.32em] ${wordSize}`}>CIRCLE</span>
+    <Link href="/" aria-label="Circle, go to homepage" className="focus-ring inline-flex items-center rounded-full p-1">
+      <CircleEmblem tone={tone} size={size} />
     </Link>
   );
 }

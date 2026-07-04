@@ -22,12 +22,8 @@ export default function ContactPage() {
                 <a href="mailto:connect@getcircle.in" className="mt-3 block font-display text-3xl">connect@getcircle.in</a>
               </div>
               <div className="rounded-[2rem] bg-white p-6">
-                <p className="kicker text-black/45">WhatsApp</p>
-                <a href="https://wa.me/919000000000" className="mt-3 block font-display text-3xl">+91 90000 00000</a>
-              </div>
-              <div className="rounded-[2rem] bg-white p-6">
-                <p className="kicker text-black/45">Studio</p>
-                <p className="mt-3 font-display text-3xl">New Delhi, India</p>
+                <p className="kicker text-black/45">Location</p>
+                <p className="mt-3 font-display text-3xl">Delhi India</p>
               </div>
               <div className="rounded-[2rem] bg-white p-6">
                 <p className="kicker text-black/45">Hours</p>

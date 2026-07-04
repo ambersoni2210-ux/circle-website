@@ -69,19 +69,6 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      <section className="py-8 sm:py-16">
-        <div className="container-c">
-          <AnimatedSection className="on-dark rounded-[2.25rem] bg-black p-7 text-white sm:p-10">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="font-display text-3xl font-semibold leading-tight sm:text-4xl">Build merchandise your team will actually use.</h2>
-                <p className="mt-3 text-white/60">Share your requirement, quantity range, delivery city and timeline.</p>
-              </div>
-              <Link href="/contact" className="btn btn-accent shrink-0">Start a corporate inquiry</Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
     </div>
   );
 }

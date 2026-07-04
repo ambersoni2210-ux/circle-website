@@ -25,8 +25,7 @@ export default function CheckoutForm() {
       <section className="container-c py-28 text-center">
         <div className="mx-auto max-w-xl rounded-[2.5rem] bg-white p-8 shadow-soft">
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-black text-white">✓</div>
-          <h1 className="font-display text-5xl font-semibold tracking-[-0.065em]">Thanks. Circle will get back to you.</h1>
-          <p className="mt-4 text-black/58">Your inquiry has been prepared for connect@getcircle.in. Send the email from your mail app so we can respond with next steps.</p>
+          <h1 className="font-display text-5xl font-semibold tracking-[-0.065em]">Thanks, we will get back to you.</h1>
           <Link href="/shop" className="mt-8 inline-flex min-h-12 items-center rounded-full bg-black px-6 text-xs font-bold uppercase tracking-[0.2em] text-white">
             Back to shop
           </Link>

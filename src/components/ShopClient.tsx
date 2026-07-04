@@ -4,13 +4,26 @@ import { useMemo, useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import { categories, products } from '@/data/products';
 
+const sortOptions = [
+  { value: 'featured', label: 'Featured' },
+  { value: 'price-asc', label: 'Lowest to highest price' },
+  { value: 'price-desc', label: 'Highest to lowest price' },
+];
+
+function startingPrice(priceBand: string, price: number) {
+  if (price > 0) return price;
+  const match = priceBand.match(/\d[\d,]*/);
+  return match ? Number(match[0].replace(/,/g, '')) : 0;
+}
+
 export default function ShopClient() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [sortBy, setSortBy] = useState('featured');
   const [query, setQuery] = useState('');
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return products.filter((product) => {
+    const result = products.filter((product) => {
       const categoryMatch = activeCategory === 'All' || product.category === activeCategory || product.audience.includes(activeCategory as any);
       const searchMatch =
         !normalized ||
@@ -19,28 +32,48 @@ export default function ShopClient() {
         product.category.toLowerCase().includes(normalized);
       return categoryMatch && searchMatch;
     });
-  }, [activeCategory, query]);
+
+    if (sortBy === 'price-asc') {
+      return [...result].sort((a, b) => startingPrice(a.priceBand, a.price) - startingPrice(b.priceBand, b.price));
+    }
+    if (sortBy === 'price-desc') {
+      return [...result].sort((a, b) => startingPrice(b.priceBand, b.price) - startingPrice(a.priceBand, a.price));
+    }
+    return result;
+  }, [activeCategory, query, sortBy]);
 
   return (
     <div>
       <div className="sticky top-[72px] z-20 -mx-5 border-y border-black/10 bg-circle-cream/88 px-5 py-4 backdrop-blur-xl sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10 xl:-mx-14 xl:px-14">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-          <div className="snap-x-c flex gap-2 overflow-x-auto pb-1">
-            {['All', ...categories].map((category) => (
-              <button
-                type="button"
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`min-h-11 shrink-0 scroll-ml-5 rounded-full border px-4 text-xs font-bold uppercase tracking-[0.18em] transition ${
-                  activeCategory === category ? 'border-black bg-black text-white' : 'border-black/10 bg-white/55 text-black/62 hover:border-black/40 hover:text-black'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-          <label className="relative block lg:w-80">
-            <span className="sr-only">Search products</span>
+        <div className="grid gap-3 lg:grid-cols-[220px_260px_1fr] lg:items-center">
+          <label className="block">
+            <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.18em] text-black/45">Filter</span>
+            <select
+              value={activeCategory}
+              onChange={(event) => setActiveCategory(event.target.value)}
+              className="min-h-12 w-full rounded-full border border-black/10 bg-white px-5 text-sm font-semibold outline-none transition focus:border-black"
+            >
+              {['All', ...categories].map((category) => (
+                <option key={category} value={category}>{category}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className="block">
+            <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.18em] text-black/45">Sort by</span>
+            <select
+              value={sortBy}
+              onChange={(event) => setSortBy(event.target.value)}
+              className="min-h-12 w-full rounded-full border border-black/10 bg-white px-5 text-sm font-semibold outline-none transition focus:border-black"
+            >
+              {sortOptions.map((option) => (
+                <option key={option.value} value={option.value}>{option.label}</option>
+              ))}
+            </select>
+          </label>
+
+          <label className="block">
+            <span className="mb-2 block text-[10px] font-bold uppercase tracking-[0.18em] text-black/45">Search</span>
             <input
               type="search"
               placeholder="Search products"
@@ -61,7 +94,7 @@ export default function ShopClient() {
       {filtered.length === 0 && (
         <div className="py-24 text-center">
           <p className="font-display text-3xl tracking-[-0.05em]">No products found.</p>
-          <p className="mt-3 text-black/55">Try another category or search term.</p>
+          <p className="mt-3 text-black/55">Try another filter or search term.</p>
         </div>
       )}
     </div>

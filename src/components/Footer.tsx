@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import LogoReplayLink from '@/components/LogoReplayLink';
-import { CircleMark } from '@/components/CircleLogo';
+import { CircleEmblem } from '@/components/CircleLogo';
 
 const groups = [
   {
@@ -28,7 +28,7 @@ export default function Footer() {
       <div className="container-c py-14 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_.7fr_.7fr_.9fr]">
           <div>
-            <LogoReplayLink tone="light" wordSize="text-xl" />
+            <LogoReplayLink tone="light" size={96} />
             <p className="mt-7 max-w-md font-display text-3xl font-semibold leading-[1.1] text-white sm:text-4xl">
               Merchandise that carries belonging.
             </p>
@@ -54,23 +54,19 @@ export default function Footer() {
               <a href="mailto:connect@getcircle.in" className="mt-4 block text-sm text-white/65 transition hover:text-white">connect@getcircle.in</a>
             </div>
             <div>
-              <p className="kicker text-white/45">Studio</p>
-              <p className="mt-4 text-sm text-white/65">Team Circle</p>
-              <p className="text-sm text-white/65">New Delhi, India</p>
+              <p className="kicker text-white/45">Location</p>
+              <p className="mt-4 text-sm text-white/65">Delhi India</p>
             </div>
             <div>
-              <p className="kicker text-white/45">Hours</p>
-              <p className="mt-4 text-sm text-white/65">Weekdays and weekends</p>
-              <p className="text-sm text-white/65">9 AM to 9 PM</p>
+              <p className="kicker text-white/45">Office Hours</p>
+              <p className="mt-4 text-sm text-white/65">9 AM to 9 PM on weekdays</p>
+              <p className="text-sm text-white/65">10 AM to 8 PM on weekends</p>
             </div>
           </div>
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-4 border-t border-white/10 pt-8 sm:flex-row sm:justify-between">
-          <div className="flex items-center gap-2.5">
-            <CircleMark tone="light" size={26} />
-            <span className="font-display text-sm font-bold tracking-[0.28em] text-white/80">CIRCLE</span>
-          </div>
+          <CircleEmblem tone="light" size={44} />
           <p className="text-xs text-white/45">Circle. All rights reserved 2026.</p>
         </div>
       </div>
