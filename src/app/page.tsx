@@ -48,7 +48,7 @@ export default function HomePage() {
               Circle designs premium merchandise and custom branded stores for campuses, companies, teams and communities, so people can carry the groups they belong to.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn btn-light">Start a store</Link>
+              <Link href="/contact" className="btn btn-accent">Start a store</Link>
               <Link href="/shop" className="btn btn-outline-light">Explore products</Link>
             </div>
           </AnimatedSection>
@@ -197,7 +197,7 @@ export default function HomePage() {
             <p className="kicker text-white/45">Start with your circle</p>
             <h2 className="display-md mx-auto mt-4 max-w-4xl text-white">Build the store your circle will remember.</h2>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link href="/contact" className="btn btn-light">Talk to Circle</Link>
+              <Link href="/contact" className="btn btn-accent">Talk to Circle</Link>
               <Link href="/shop" className="btn btn-outline-light">Browse products</Link>
             </div>
           </AnimatedSection>

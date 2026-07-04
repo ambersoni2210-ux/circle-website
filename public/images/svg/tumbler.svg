@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none" role="img">
-  <rect width="800" height="1000" fill="#F6F3EE"/>
-  <g stroke="#C9C1B3" stroke-width="1.2" opacity="0.55" fill="none">
+  <rect width="800" height="1000" fill="#FAFAFA"/>
+  <g stroke="#D7D7DD" stroke-width="1.2" opacity="0.55" fill="none">
     <circle cx="400" cy="500" r="150"/>
     <circle cx="400" cy="500" r="250"/>
     <circle cx="400" cy="500" r="350"/>
@@ -10,8 +10,8 @@
   <g>
     <path d="M356 280 l88 0 -10 400 q-2 30 -34 30 q-32 0 -34 -30 z" fill="#0A0A0A"/>
     <rect x="352" y="264" width="96" height="26" rx="8" fill="#0A0A0A"/>
-    <ellipse cx="400" cy="264" rx="48" ry="12" fill="#F6F3EE"/>
-    <circle cx="428" cy="300" r="10" fill="#F6F3EE"/>
+    <ellipse cx="400" cy="264" rx="48" ry="12" fill="#FAFAFA"/>
+    <circle cx="428" cy="300" r="10" fill="#FAFAFA"/>
   </g>
   <circle cx="400" cy="470" r="24" fill="none" stroke="#0A0A0A" stroke-width="2.4"/>
    <circle cx="400" cy="470" r="7.0588235294117645" fill="#0A0A0A"/>

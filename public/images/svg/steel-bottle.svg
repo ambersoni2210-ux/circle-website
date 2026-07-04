@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none" role="img">
-  <rect width="800" height="1000" fill="#F6F3EE"/>
-  <g stroke="#C9C1B3" stroke-width="1.2" opacity="0.55" fill="none">
+  <rect width="800" height="1000" fill="#FAFAFA"/>
+  <g stroke="#D7D7DD" stroke-width="1.2" opacity="0.55" fill="none">
     <circle cx="400" cy="500" r="150"/>
     <circle cx="400" cy="500" r="250"/>
     <circle cx="400" cy="500" r="350"/>
@@ -11,7 +11,7 @@
     <rect x="352" y="250" width="96" height="40" rx="10" fill="#0A0A0A"/>
     <rect x="366" y="230" width="68" height="30" rx="8" fill="#0A0A0A"/>
     <path d="M348 290 q52 -14 104 0 l0 380 q0 40 -40 40 l-24 0 q-40 0 -40 -40 z" fill="#0A0A0A"/>
-    <rect x="360" y="360" width="80" height="120" rx="10" fill="#F6F3EE" opacity="0.12"/>
+    <rect x="360" y="360" width="80" height="120" rx="10" fill="#FAFAFA" opacity="0.12"/>
   </g>
   <circle cx="400" cy="430" r="26" fill="none" stroke="#0A0A0A" stroke-width="2.4"/>
    <circle cx="400" cy="430" r="7.647058823529412" fill="#0A0A0A"/>

@@ -11,11 +11,16 @@ module.exports = {
         circle: {
           ink: '#0A0A0A',
           black: '#0A0A0A',
-          charcoal: '#2A2824',
-          cream: '#F6F3EE',
-          'cream-deep': '#EDE7DC',
-          warm: '#E7E0D4',
-          mist: '#C9C1B3',
+          charcoal: '#1C1C1F',
+          paper: '#FAFAFA',
+          'paper-deep': '#F0F0F2',
+          mist: '#E4E4E8',
+          accent: '#2547FF',
+          'accent-deep': '#1B34C4',
+          // legacy aliases (existing class names keep working)
+          cream: '#FAFAFA',
+          'cream-deep': '#F0F0F2',
+          warm: '#E4E4E8',
         },
       },
       boxShadow: {
