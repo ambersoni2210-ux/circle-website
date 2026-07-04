@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useCart } from '@/context/CartContext';
-import { CircleMark } from '@/components/CircleLogo';
 import { playCircleIntro } from '@/components/IntroAnimation';
 
 const navLinks = [
@@ -56,11 +55,8 @@ export default function Navbar() {
       >
         <div className="container-c">
           <div className="flex h-[76px] items-center justify-between gap-4 pt-[env(safe-area-inset-top)] sm:h-20">
-            <Link href="/" aria-label="Circle — go to homepage" className="group focus-ring -ml-1 inline-flex items-center gap-3 rounded-full p-1 no-tap-highlight" onClick={() => { setMenuOpen(false); playCircleIntro(); }}>
-              <span className="transition-transform duration-700 group-hover:rotate-180">
-                <CircleMark tone={useLight ? 'light' : 'dark'} size={32} />
-              </span>
-              <span className={`text-[0.9rem] font-medium tracking-[0.4em] ${useLight ? 'text-circle-cream' : 'text-circle-ink'}`}>CIRCLE</span>
+            <Link href="/" aria-label="Circle — go to homepage" className="focus-ring -ml-1 inline-flex items-center rounded-full p-1 no-tap-highlight" onClick={() => { setMenuOpen(false); playCircleIntro(); }}>
+              <span className={`font-display text-xl font-bold tracking-[0.32em] transition-colors ${useLight ? 'text-circle-cream' : 'text-circle-ink'}`}>CIRCLE</span>
             </Link>
 
             <div className="hidden items-center gap-1 lg:flex">

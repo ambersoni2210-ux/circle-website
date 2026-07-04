@@ -1,30 +1,27 @@
 'use client';
 
 import Link from 'next/link';
-import { CircleMark } from '@/components/CircleLogo';
 import { playCircleIntro } from '@/components/IntroAnimation';
 
-/* A logo link that also replays the intro animation when clicked. */
+/* Footer logo: clean CIRCLE wordmark that replays the short splash on click. */
 export default function LogoReplayLink({
   tone = 'dark',
-  size = 40,
-  textClass = '',
-  wordSize = 'text-lg',
+  wordSize = 'text-2xl',
 }: {
   tone?: 'light' | 'dark';
+  wordSize?: string;
   size?: number;
   textClass?: string;
-  wordSize?: string;
 }) {
+  const color = tone === 'light' ? 'text-circle-paper' : 'text-circle-ink';
   return (
     <Link
       href="/"
       onClick={() => playCircleIntro()}
       aria-label="Circle — go to homepage"
-      className="group focus-ring inline-flex items-center gap-3 rounded-full"
+      className={`focus-ring inline-flex items-center rounded-full ${color}`}
     >
-      <CircleMark tone={tone} size={size} />
-      <span className={`${wordSize} font-light tracking-[0.4em] ${textClass}`}>CIRCLE</span>
+      <span className={`font-display font-bold tracking-[0.32em] ${wordSize}`}>CIRCLE</span>
     </Link>
   );
 }

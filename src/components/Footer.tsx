@@ -35,7 +35,7 @@ export default function Footer() {
       <div className="container-c py-14 sm:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_.7fr_.7fr_.7fr]">
           <div>
-            <LogoReplayLink tone="light" size={40} textClass="text-circle-paper" wordSize="text-lg" />
+            <LogoReplayLink tone="light" wordSize="text-2xl" />
             <p className="mt-8 max-w-md font-display text-3xl leading-[1.1] text-white sm:text-4xl">
               Merchandise that carries belonging.
             </p>

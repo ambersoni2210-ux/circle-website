@@ -1,41 +1,37 @@
-# ✅ CIRCLE — FINAL COMPLETE WEBSITE
+# ✅ CIRCLE — FINAL WEBSITE (v5)
 
-This ZIP is the WHOLE website with ALL fixes baked in:
-- Full-circle intro animation (with "CIRCLE" inside) — no more half circle
-- Correct logo in the navbar and footer
-- Clicking the logo replays the intro animation
-- New palette: black + cool white + cobalt blue accent (NO beige)
-- Cormorant serif headlines (Dior/LV feel)
+Whole website, all latest changes baked in.
 
-## THE SUREST WAY TO GO LIVE (do this exactly)
+## What's new in this version
+- LONG intro animation (~8.5s): scattered dots (a community) converge and
+  flow together to form the Circle, then "CIRCLE" + tagline resolve.
+  Plays on every load / reload.
+- SHORT logo splash (~2.4s): plays ONLY when you click the logo while
+  browsing — quick black screen with the CIRCLE logo, then lands home.
+- Navbar: clean "CIRCLE" wordmark only (no drawn circle beside it).
+- Fonts: Space Grotesk (headings) + Inter (body) — professional & readable.
+  The serif is removed.
+- Homepage: decluttered. Clean hero + a continuous scrolling image loop.
+- Colour: black + white + cobalt blue used tastefully throughout.
 
-Because partial uploads have been unreliable, replace EVERYTHING once:
+## GO LIVE (surest way — replace everything)
+1. Unzip this folder.
+2. On GitHub: delete the `src` and `public` folders.
+3. Add file -> Upload files -> drag in EVERYTHING at the top level of this
+   unzipped folder (src, public, and all loose files).
+4. Commit.
 
-### Option 1 — Fresh commit (cleanest, recommended)
-1. On GitHub, open your repo.
-2. Delete the `src` folder and the `public` folder completely
-   (open each → top-right ⋯ or trash → Delete → commit).
-3. Click **Add file → Upload files**.
-4. From this unzipped folder, drag in EVERYTHING you see at the top level:
-   `src`, `public`, and all the loose files (package.json, next.config.js,
-   tailwind.config.js, tsconfig.json, postcss.config.js, next-env.d.ts,
-   README.md, and the guide .md files).
-5. Commit.
+## Force a clean Vercel build
+1. Vercel -> your project -> Deployments.
+2. Newest deployment -> ... (three dots) -> Redeploy.
+3. UNTICK "Use existing Build Cache" if shown -> Redeploy.
+4. Wait for "Ready".
 
-### Then force Vercel to rebuild WITHOUT cache
-1. Go to Vercel → your project → Deployments.
-2. Top (newest) deployment → click the ⋯ (three dots) → **Redeploy**.
-3. In the popup, UNTICK "Use existing Build Cache" if shown → Redeploy.
-4. Wait for "Ready" (~1-2 min).
+## View it
+Open your site in an INCOGNITO / PRIVATE window (avoids old cache),
+or hard-refresh: Ctrl/Cmd + Shift + R.
 
-### Then see it
-- Open your site in a PRIVATE / INCOGNITO window (this avoids your browser
-  showing an old cached copy). Or hard-refresh: Ctrl/Cmd + Shift + R.
-- You should see the black intro with the full CIRCLE logo, cool-white pages,
-  and the cobalt "Start a store" button.
-
-## If it STILL looks old after all this
-Your browser or Vercel is caching. Try:
-- A different browser, or your phone on mobile data.
-- Vercel → Deployments → confirm the NEWEST one is "Ready" and its commit
-  message matches your latest upload.
+## Notes
+- First load runs the full ~8.5s intro. Click the logo while browsing to
+  see the short ~2.4s splash. They are intentionally different.
+- WhatsApp number and GST in the footer are placeholders — swap for real ones.

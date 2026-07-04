@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Cormorant } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,11 +13,11 @@ const inter = Inter({
   display: 'swap',
 });
 
-const cormorant = Cormorant({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-cormorant',
+  variable: '--font-space',
   display: 'swap',
-  weight: ['300', '400', '500'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body>
         <IntroAnimation />
         <a href="#main" className="skip-link">Skip to content</a>
