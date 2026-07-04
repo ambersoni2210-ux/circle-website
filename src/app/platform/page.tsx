@@ -18,11 +18,11 @@ const steps = [
 ];
 
 const storeTypes = [
-  ['Campus store', 'For students, batches, clubs, departments, sports teams, fests and alumni. A simpler way to organize official campus merchandise.'],
-  ['Company store', 'For employees, HR programs, events, rewards and gifting. A branded space for useful and approved company merchandise.'],
-  ['Sports team store', 'For players, coaches, fans and team communities. A focused store for jerseys, training wear, travel kits and team products.'],
-  ['Alumni store', 'For reunions, keepsakes and long term connection. A premium merchandise experience for people who still feel connected.'],
-  ['Event store', 'For fests, conferences, creator events, volunteers and limited edition drops. One clean place for event merchandise before, during or after the event.'],
+  { title: 'Campus store', text: 'For students, batches, clubs, departments, sports teams, fests and alumni.', href: '/colleges' },
+  { title: 'Company store', text: 'For employees, HR programs, events, rewards and gifting.', href: '/corporate' },
+  { title: 'Sports team store', text: 'For players, coaches, fans and team communities.', href: '' },
+  { title: 'Alumni store', text: 'For reunions, keepsakes and long term connection.', href: '' },
+  { title: 'Event store', text: 'For fests, conferences, creator events, volunteers and limited edition drops.', href: '' },
 ];
 
 export default function PlatformPage() {
@@ -85,10 +85,20 @@ export default function PlatformPage() {
             <h2 className="display-md mt-4 text-white">One official place, shaped for your community.</h2>
           </AnimatedSection>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {storeTypes.map(([title, text], i) => (
-              <AnimatedSection key={title} delay={i * 55} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6">
-                <h3 className="font-display text-2xl font-semibold">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/60">{text}</p>
+            {storeTypes.map((item, i) => (
+              <AnimatedSection key={item.title} delay={i * 55} className="rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 transition hover:-translate-y-1 hover:bg-white/[0.08]">
+                {item.href ? (
+                  <Link href={item.href} className="focus-ring group block rounded-xl">
+                    <h3 className="font-display text-2xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/60">{item.text}</p>
+                    <p className="mt-5 text-xs font-bold uppercase tracking-[0.12em] text-white/72 transition group-hover:text-white">Explore now →</p>
+                  </Link>
+                ) : (
+                  <>
+                    <h3 className="font-display text-2xl font-semibold">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-white/60">{item.text}</p>
+                  </>
+                )}
               </AnimatedSection>
             ))}
           </div>

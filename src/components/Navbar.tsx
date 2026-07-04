@@ -134,12 +134,7 @@ export default function Navbar() {
           <div className="space-y-1">
             <Link href="/" className={`block rounded-2xl px-4 py-3.5 font-display text-2xl font-semibold ${isActive('/') ? 'text-circle-accent' : 'text-black'}`}>Home</Link>
             <Link href="/shop" className={`block rounded-2xl px-4 py-3.5 font-display text-2xl font-semibold ${isActive('/shop') ? 'text-circle-accent' : 'text-black'}`}>Shop</Link>
-            <Link href="/platform" className={`block rounded-2xl px-4 py-3.5 font-display text-2xl font-semibold ${isActive('/platform') ? 'text-circle-accent' : 'text-black'}`}>Platform</Link>
-            <div className="ml-4 space-y-1">
-              {platformChildren.map((c) => (
-                <Link key={c.href} href={c.href} className={`block rounded-xl px-4 py-2 text-lg ${isActive(c.href) ? 'text-circle-accent' : 'text-black/60'}`}>{c.label}</Link>
-              ))}
-            </div>
+            <Link href="/platform" className={`block rounded-2xl px-4 py-3.5 font-display text-2xl font-semibold ${inPlatform ? 'text-circle-accent' : 'text-black'}`}>Platform</Link>
             <Link href="/about" className={`block rounded-2xl px-4 py-3.5 font-display text-2xl font-semibold ${isActive('/about') ? 'text-circle-accent' : 'text-black'}`}>About</Link>
             <Link href="/contact" className={`block rounded-2xl px-4 py-3.5 font-display text-2xl font-semibold ${isActive('/contact') ? 'text-circle-accent' : 'text-black'}`}>Contact</Link>
           </div>

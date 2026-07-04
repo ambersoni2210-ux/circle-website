@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['var(--font-space)', 'Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['var(--font-space)', 'Outfit', 'Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         circle: {
