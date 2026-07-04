@@ -21,7 +21,13 @@
   --accent: #2547FF;       /* cobalt blue accent */
   --accent-deep: #1B34C4;  /* darker cobalt for hover */
   --blue-tint: #EEF2FF;    /* soft light-blue section background */
-  --blue-tint-2: #E6ECFF;  /* slightly deeper light-blue */
+  --blue-tint-2: #E6ECFF;
+  /* audience energy colours (used as accents + soft tints) */
+  --c-purple: #6D4AFF;  --c-purple-soft: #EFEBFF;
+  --c-sky: #2FA8FF;     --c-sky-soft: #E7F4FF;
+  --c-green: #1FB57A;   --c-green-soft: #E4F7EF;
+  --c-yellow: #FFC93C;  --c-yellow-soft: #FFF6E0;
+  --c-coral: #FF5A5A;   --c-coral-soft: #FFECEC;
   --line: rgba(10, 10, 10, 0.10);
   --muted: rgba(10, 10, 10, 0.56);
   /* legacy aliases so existing classes keep working */

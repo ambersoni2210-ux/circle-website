@@ -1,39 +1,37 @@
-# CIRCLE - FINAL WEBSITE (v6)
+# CIRCLE - FINAL WEBSITE (v7 - real photos + colour + soul)
 
-Whole website. All latest changes baked in and build-tested (all 34 pages).
+Whole website, build-tested (all 34 pages compile).
 
-## What's new in this version
-- Content updated across every page (homepage, products, custom stores,
-  colleges, corporate, about, contact, order inquiry, footer, SEO titles).
-- Intro animation retimed to 8 seconds: scattered dots (a community) converge
-  and form the logo over the first ~5.5 to 6 seconds, then the dots fade out
-  and the clean CIRCLE logo holds with the tagline "Connecting the Community"
-  for the last ~2 seconds so it can be read. Plays on every load / reload.
-- Short logo splash: max 1.8 seconds. Plays only when you click the logo while
-  browsing (quick black screen with the logo, then lands home).
-- Navbar shows the clean CIRCLE wordmark only.
+## What's new
+- REAL PHOTOGRAPHY from your uploaded images placed across the site:
+  hero (cobalt hoodie), audience cards (graduation, welcome kits, sports
+  huddle, campus, community), product categories, colleges, corporate, about.
+- 5-colour audience system used as accents and soft tinted cards:
+  Colleges = purple, Corporate = sky blue, Sports = green, Events = yellow,
+  Alumni/gifting = coral. Black + white base, cobalt for actions.
+- Restructured homepage: hero with product chips + stat badge, audience
+  cards, colourful product-category cards, featured products, custom-store
+  section, how it works, why circle, colourful final CTA.
+- Intro: community-convergence dots forming the logo, tagline
+  "Connecting the Community". Short 1.8s logo splash on logo click.
 - Fonts: Space Grotesk (headings) + Inter (body).
-- Colour: black + white + cobalt blue, with soft light-blue backgrounds on a
-  few sections (product range, why circle, store problem, voucher, etc.).
 - No em dashes or semicolons in reader-facing text.
 
-## GO LIVE (surest way - replace everything)
+## GO LIVE (replace everything - surest way)
 1. Unzip this folder.
 2. On GitHub: delete the `src` and `public` folders.
-3. Add file -> Upload files -> drag in EVERYTHING at the top level of this
-   unzipped folder (src, public, and all loose files).
-4. Commit.
+3. Add file -> Upload files -> drag in EVERYTHING at the top level here
+   (src, public, and all loose files). Commit.
 
 ## Force a clean Vercel build
-1. Vercel -> your project -> Deployments.
-2. Newest deployment -> ... (three dots) -> Redeploy.
-3. UNTICK "Use existing Build Cache" if shown -> Redeploy.
-4. Wait for "Ready".
+1. Vercel -> project -> Deployments -> newest -> ... -> Redeploy.
+2. UNTICK "Use existing Build Cache" -> Redeploy. Wait for "Ready".
 
-## View it
-Open your site in an INCOGNITO / PRIVATE window (avoids old cache), or
-hard-refresh: Ctrl/Cmd + Shift + R.
-- Reload = full 8-second intro. Click the logo while browsing = short 1.8s splash.
+## View
+Open in an INCOGNITO window (avoids old cache) or hard-refresh Ctrl/Cmd+Shift+R.
+
+## Swap any image later
+Everything routes through src/config/images.ts. See IMAGE_REPLACEMENT_GUIDE.md.
 
 ## Note
 WhatsApp number and GST in the footer are placeholders. Swap for real values.

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import AnimatedSection from '@/components/AnimatedSection';
+import { brandImages } from '@/config/images';
 
 export const metadata: Metadata = {
   title: 'About Circle',
@@ -38,6 +40,11 @@ export default function AboutPage() {
             {objects.map((o) => (
               <p key={o} className="font-display text-xl">{o}</p>
             ))}
+          </div>
+        </AnimatedSection>
+        <AnimatedSection delay={140} className="mt-12">
+          <div className="overflow-hidden rounded-[2.5rem] shadow-soft">
+            <Image src={brandImages.community.src} alt={brandImages.community.alt} width={1200} height={900} className="w-full object-cover" />
           </div>
         </AnimatedSection>
       </section>
