@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useCart } from '@/context/CartContext';
+import { productImageFor } from '@/data/products';
 
 export default function CartDrawer() {
   const { items, isCartOpen, setIsCartOpen, removeItem, updateQuantity, totalItems, totalPrice, hasCustomPricing } = useCart();
@@ -28,7 +29,7 @@ export default function CartDrawer() {
       >
         <div className="flex items-center justify-between border-b border-black/10 px-5 py-5 pt-[max(1.25rem,env(safe-area-inset-top))] sm:px-7">
           <div>
-            <p className="kicker text-black/42">Circle bag</p>
+            <p className="kicker text-black/42">Circle inquiry</p>
             <h2 className="font-display text-3xl font-semibold tracking-[-0.055em]">{totalItems} item{totalItems === 1 ? '' : 's'}</h2>
           </div>
           <button onClick={() => setIsCartOpen(false)} className="focus-ring flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-2xl leading-none" aria-label="Close cart">
@@ -42,8 +43,8 @@ export default function CartDrawer() {
               <div className="relative mb-6 h-28 w-28 rounded-full border border-black/15">
                 <span className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-black" />
               </div>
-              <p className="font-display text-3xl tracking-[-0.05em]">Your bag is empty.</p>
-              <p className="mt-3 max-w-xs text-sm leading-6 text-black/55">Explore products and build a request for your circle.</p>
+              <p className="font-display text-3xl tracking-[-0.05em]">Your inquiry is empty.</p>
+              <p className="mt-3 max-w-xs text-sm leading-6 text-black/55">Add products to build a request for your circle.</p>
               <Link href="/shop" onClick={() => setIsCartOpen(false)} className="mt-7 rounded-full bg-black px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
                 Explore shop
               </Link>
@@ -53,7 +54,7 @@ export default function CartDrawer() {
               {items.map((item) => (
                 <div key={item.key} className="grid grid-cols-[90px_1fr] gap-4 rounded-[1.5rem] bg-white p-3">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1rem] bg-circle-cream">
-                    <Image src={item.product.image} alt={item.product.name} fill sizes="90px" className="object-cover" />
+                    <Image src={productImageFor(item.product).src} alt={productImageFor(item.product).alt} fill sizes="90px" className="object-cover" />
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-start justify-between gap-3">
@@ -85,7 +86,7 @@ export default function CartDrawer() {
               <span>{hasCustomPricing ? 'Shared after request' : `₹${totalPrice.toLocaleString('en-IN')}`}</span>
             </div>
             <Link href="/checkout" onClick={() => setIsCartOpen(false)} className="magnetic-btn flex min-h-12 w-full items-center justify-center rounded-full bg-black px-6 text-xs font-bold uppercase tracking-[0.2em] text-white">
-              Request order
+              Review inquiry
             </Link>
           </div>
         )}

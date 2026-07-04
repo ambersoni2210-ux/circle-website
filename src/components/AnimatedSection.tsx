@@ -6,9 +6,10 @@ type AnimatedSectionProps = {
   children: ReactNode;
   className?: string;
   delay?: number;
+  id?: string;
 };
 
-export default function AnimatedSection({ children, className = '', delay = 0 }: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className = '', delay = 0, id }: AnimatedSectionProps) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -29,7 +30,7 @@ export default function AnimatedSection({ children, className = '', delay = 0 }:
   }, []);
 
   return (
-    <div ref={ref} className={`section-reveal ${visible ? 'visible' : ''} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
+    <div id={id} ref={ref} className={`section-reveal ${visible ? 'visible' : ''} ${className}`} style={{ transitionDelay: `${delay}ms` }}>
       {children}
     </div>
   );

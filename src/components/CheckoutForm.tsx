@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import { productImageFor } from '@/data/products';
 
 const orderTypes = ['Personal order', 'Bulk order', 'Custom store inquiry', 'Voucher/reward program'];
 const quantities = ['1–10', '11–50', '51–200', '201–500', '500+'];
@@ -101,7 +102,7 @@ export default function CheckoutForm() {
               {items.map((item) => (
                 <div key={item.key} className="grid grid-cols-[76px_1fr] gap-4 rounded-[1.5rem] bg-white/8 p-3">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1rem] bg-white/10">
-                    <Image src={item.product.image} alt={item.product.name} fill sizes="76px" className="object-cover" />
+                    <Image src={productImageFor(item.product).src} alt={productImageFor(item.product).alt} fill sizes="76px" className="object-cover" />
                   </div>
                   <div>
                     <div className="flex items-start justify-between gap-3">

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import ProductConfigurator from '@/components/ProductConfigurator';
-import { getProductBySlug, getRelatedProducts, products } from '@/data/products';
+import { getProductBySlug, getRelatedProducts, products, productImageFor, productGalleryFor } from '@/data/products';
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     openGraph: {
       title: `${product.name} | Circle`,
       description: product.description,
-      images: [{ url: product.image, alt: product.name }],
+      images: [{ url: productImageFor(product).src, alt: productImageFor(product).alt }],
     },
   };
 }
@@ -39,9 +39,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         <Link href="/shop" className="mb-7 inline-flex text-sm font-semibold text-black/52 transition hover:text-black">← Back to shop</Link>
         <div className="grid gap-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
           <div className="grid gap-4 sm:grid-cols-2">
-            {product.images.map((image, index) => (
-              <div key={`${image}-${index}`} className={`relative overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)] ${index === 0 ? 'aspect-[4/5] sm:col-span-2 lg:col-span-2' : 'aspect-square'}`}>
-                <Image src={image} alt={`${product.name} view ${index + 1}`} fill priority={index === 0} sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
+            {productGalleryFor(product).map((image, index) => (
+              <div key={`${image.src}-${index}`} className={`relative overflow-hidden rounded-[2rem] bg-white shadow-[0_1px_0_rgba(0,0,0,0.05)] ${index === 0 ? 'aspect-[4/5] sm:col-span-2 lg:col-span-2' : 'aspect-square'}`}>
+                <Image src={image.src} alt={image.alt} fill priority={index === 0} sizes="(max-width: 1024px) 100vw, 55vw" className="object-cover" />
               </div>
             ))}
           </div>
@@ -53,8 +53,11 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       </section>
 
       <section className="container-c pb-16 sm:pb-24">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
+            ['Indicative price', `${product.priceBand} per unit`],
+            ['Minimum order', `${product.moq} units`],
+            ['Lead time', product.leadTime],
             ['Material', product.material],
             ['Customization', product.placements.join(', ')],
             ['Best for', product.bestFor.join(', ')],

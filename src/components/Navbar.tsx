@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useCart } from '@/context/CartContext';
+import { CircleMark } from '@/components/CircleLogo';
 
 const navLinks = [
   { href: '/shop', label: 'Shop' },
@@ -13,17 +14,6 @@ const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
 ];
-
-function LogoMark({ light = false }: { light?: boolean }) {
-  return (
-    <span className="flex items-center gap-2.5">
-      <span className={`relative h-9 w-9 rounded-full border-[2.5px] transition-transform duration-500 group-hover:rotate-180 group-active:scale-95 ${light ? 'border-white' : 'border-circle-black'}`}>
-        <span className={`absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full ${light ? 'bg-white' : 'bg-circle-black'}`} />
-      </span>
-      <span className="font-display text-base font-bold tracking-[0.22em]">CIRCLE</span>
-    </span>
-  );
-}
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,13 +30,11 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', menuOpen);
-    const onKey = (event: KeyboardEvent) => event.key === 'Escape' && setMenuOpen(false);
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
     window.addEventListener('keydown', onKey);
     return () => {
       document.body.classList.remove('menu-open');
@@ -54,24 +42,24 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  const openCart = () => {
-    setMenuOpen(false);
-    setIsCartOpen(true);
-  };
+  const openCart = () => { setMenuOpen(false); setIsCartOpen(true); };
 
   return (
     <>
       <nav
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           useLight
-            ? 'bg-transparent text-white'
-            : 'border-b border-black/10 bg-circle-cream/88 text-circle-black shadow-[0_1px_0_rgba(0,0,0,0.03)] backdrop-blur-xl'
+            ? 'on-dark bg-transparent text-circle-cream'
+            : 'border-b border-black/10 bg-circle-cream/90 text-circle-ink shadow-[0_1px_0_rgba(0,0,0,0.03)] backdrop-blur-xl'
         }`}
       >
         <div className="container-c">
-          <div className="flex h-[72px] items-center justify-between gap-4 pt-[env(safe-area-inset-top)] sm:h-20">
-            <Link href="/" aria-label="Go to Circle homepage" className="group focus-ring -ml-2 rounded-full p-2 no-tap-highlight" onClick={() => setMenuOpen(false)}>
-              <LogoMark light={useLight} />
+          <div className="flex h-[76px] items-center justify-between gap-4 pt-[env(safe-area-inset-top)] sm:h-20">
+            <Link href="/" aria-label="Circle — go to homepage" className="group focus-ring -ml-1 inline-flex items-center gap-3 rounded-full p-1 no-tap-highlight" onClick={() => setMenuOpen(false)}>
+              <span className="transition-transform duration-700 group-hover:rotate-180">
+                <CircleMark tone={useLight ? 'light' : 'dark'} size={32} />
+              </span>
+              <span className={`text-[0.9rem] font-medium tracking-[0.4em] ${useLight ? 'text-circle-cream' : 'text-circle-ink'}`}>CIRCLE</span>
             </Link>
 
             <div className="hidden items-center gap-1 lg:flex">
@@ -81,8 +69,9 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`focus-ring relative rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors ${
-                      useLight ? 'text-white/72 hover:text-white' : 'text-black/58 hover:text-black'
+                    aria-current={active ? 'page' : undefined}
+                    className={`focus-ring relative rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] transition-colors ${
+                      useLight ? 'text-white/75 hover:text-white' : 'text-black/60 hover:text-black'
                     }`}
                   >
                     {link.label}
@@ -95,10 +84,10 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                aria-label="Open cart"
+                aria-label={`Open inquiry bag, ${totalItems} item${totalItems === 1 ? '' : 's'}`}
                 onClick={openCart}
-                className={`focus-ring relative flex h-11 min-w-11 items-center justify-center rounded-full border text-xs font-bold transition ${
-                  useLight ? 'border-white/25 bg-white/8 text-white hover:bg-white/16' : 'border-black/10 bg-white/45 text-black hover:bg-white'
+                className={`focus-ring relative flex h-11 min-w-11 items-center justify-center rounded-full border px-4 text-xs font-bold uppercase tracking-[0.14em] transition ${
+                  useLight ? 'border-white/25 bg-white/10 text-white hover:bg-white/20' : 'border-black/10 bg-white/50 text-black hover:bg-white'
                 }`}
               >
                 Bag
@@ -110,8 +99,8 @@ export default function Navbar() {
               </button>
               <Link
                 href="/contact"
-                className={`magnetic-btn focus-ring hidden min-h-11 items-center rounded-full px-5 text-xs font-bold uppercase tracking-[0.18em] transition sm:flex ${
-                  useLight ? 'bg-white text-black hover:bg-white/90' : 'bg-black text-white hover:bg-black/90'
+                className={`focus-ring hidden min-h-11 items-center rounded-full px-5 text-xs font-bold uppercase tracking-[0.14em] transition sm:inline-flex ${
+                  useLight ? 'bg-white text-black hover:-translate-y-0.5' : 'bg-black text-white hover:-translate-y-0.5'
                 }`}
               >
                 Start a store
@@ -120,14 +109,14 @@ export default function Navbar() {
                 type="button"
                 aria-label={menuOpen ? 'Close menu' : 'Open menu'}
                 aria-expanded={menuOpen}
-                onClick={() => setMenuOpen((open) => !open)}
+                onClick={() => setMenuOpen((o) => !o)}
                 className={`focus-ring flex h-11 w-11 items-center justify-center rounded-full border transition lg:hidden ${
-                  useLight ? 'border-white/25 bg-white/8 text-white' : 'border-black/10 bg-white/60 text-black'
+                  useLight ? 'border-white/25 bg-white/10 text-white' : 'border-black/10 bg-white/60 text-black'
                 }`}
               >
                 <span className="relative h-4 w-5">
-                  <span className={`absolute left-0 top-1 h-px w-5 transition ${menuOpen ? 'translate-y-1.5 rotate-45' : ''} ${useLight ? 'bg-white' : 'bg-black'}`} />
-                  <span className={`absolute left-0 top-3 h-px w-5 transition ${menuOpen ? '-translate-y-1.5 -rotate-45' : ''} ${useLight ? 'bg-white' : 'bg-black'}`} />
+                  <span className={`absolute left-0 top-1 h-0.5 w-5 rounded transition ${menuOpen ? 'translate-y-1.5 rotate-45' : ''} ${useLight ? 'bg-white' : 'bg-black'}`} />
+                  <span className={`absolute left-0 top-3 h-0.5 w-5 rounded transition ${menuOpen ? '-translate-y-1.5 -rotate-45' : ''} ${useLight ? 'bg-white' : 'bg-black'}`} />
                 </span>
               </button>
             </div>
@@ -135,25 +124,25 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`fixed inset-0 z-40 bg-circle-black text-white transition duration-500 lg:hidden ${menuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}>
+      {/* Mobile menu */}
+      <div className={`on-dark fixed inset-0 z-40 bg-circle-ink text-white transition duration-500 lg:hidden ${menuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}>
         <div className="container-c flex min-h-svh flex-col justify-between pb-8 pt-28">
           <div className="space-y-2">
-            {navLinks.map((link, index) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="block rounded-[2rem] border border-white/10 px-5 py-5 font-display text-4xl tracking-[-0.06em] text-white transition hover:bg-white hover:text-black active:scale-[0.99]"
-                style={{ transitionDelay: `${index * 25}ms` }}
+                className="block rounded-[1.5rem] border border-white/10 px-5 py-5 font-display text-3xl tracking-[-0.01em] text-white transition hover:bg-white hover:text-black"
               >
                 {link.label}
               </Link>
             ))}
           </div>
           <div className="space-y-4 border-t border-white/10 pt-6">
-            <button onClick={openCart} className="flex min-h-12 w-full items-center justify-between rounded-full bg-white px-5 text-sm font-bold uppercase tracking-[0.2em] text-black">
+            <button onClick={openCart} className="flex min-h-12 w-full items-center justify-between rounded-full bg-white px-5 text-sm font-bold uppercase tracking-[0.16em] text-black">
               Open bag <span>{totalItems}</span>
             </button>
-            <Link href="/contact" className="flex min-h-12 w-full items-center justify-center rounded-full border border-white/20 text-sm font-bold uppercase tracking-[0.2em]">
+            <Link href="/contact" className="flex min-h-12 w-full items-center justify-center rounded-full border border-white/20 text-sm font-bold uppercase tracking-[0.16em]">
               Talk to Circle
             </Link>
           </div>

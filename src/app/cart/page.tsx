@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
+import { productImageFor } from '@/data/products';
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, totalItems } = useCart();
@@ -10,7 +11,7 @@ export default function CartPage() {
   return (
     <div className="bg-circle-cream pt-24 sm:pt-28">
       <section className="container-c py-12 sm:py-20">
-        <p className="kicker text-black/42">Circle bag</p>
+        <p className="kicker text-black/42">Circle inquiry</p>
         <h1 className="display-lg mt-4">Your selected products.</h1>
 
         {items.length === 0 ? (
@@ -28,7 +29,7 @@ export default function CartPage() {
               {items.map((item) => (
                 <div key={item.key} className="grid gap-4 rounded-[2rem] bg-white p-4 shadow-[0_1px_0_rgba(0,0,0,0.05)] sm:grid-cols-[120px_1fr]">
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-circle-cream">
-                    <Image src={item.product.image} alt={item.product.name} fill sizes="120px" className="object-cover" />
+                    <Image src={productImageFor(item.product).src} alt={productImageFor(item.product).alt} fill sizes="120px" className="object-cover" />
                   </div>
                   <div className="flex flex-col justify-between gap-5">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
@@ -52,7 +53,7 @@ export default function CartPage() {
               <p className="kicker text-white/42">Request summary</p>
               <p className="mt-6 font-display text-4xl font-semibold tracking-[-0.06em]">{totalItems} item{totalItems === 1 ? '' : 's'} selected</p>
               <p className="mt-4 text-sm leading-6 text-white/58">Custom pricing will be shared after product, quantity, branding and fulfillment details are reviewed.</p>
-              <Link href="/checkout" className="magnetic-btn mt-8 flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-xs font-bold uppercase tracking-[0.2em] text-black">Request order</Link>
+              <Link href="/checkout" className="magnetic-btn mt-8 flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-xs font-bold uppercase tracking-[0.2em] text-black">Review inquiry</Link>
               <Link href="/shop" className="mt-3 flex min-h-12 items-center justify-center rounded-full border border-white/15 px-6 text-xs font-bold uppercase tracking-[0.2em] text-white">Continue shopping</Link>
             </aside>
           </div>
