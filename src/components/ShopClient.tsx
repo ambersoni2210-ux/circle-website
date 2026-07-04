@@ -23,6 +23,7 @@ function startingPrice(priceBand: string, price: number) {
 
 export default function ShopClient() {
   const [activeCategories, setActiveCategories] = useState<ProductCategory[]>([]);
+  const [draftCategories, setDraftCategories] = useState<ProductCategory[]>([]);
   const [sortBy, setSortBy] = useState<SortOption['value']>('featured');
   const [query, setQuery] = useState('');
   const [filtersOpen, setFiltersOpen] = useState(false);
@@ -55,17 +56,28 @@ export default function ShopClient() {
 
   const filterLabel = activeCategories.length === 0 ? 'All' : `${activeCategories.length} selected`;
 
+  const toggleFilters = () => {
+    if (!filtersOpen) {
+      setDraftCategories(activeCategories);
+    }
+    setFiltersOpen((open) => !open);
+    setSortOpen(false);
+  };
+
   const toggleCategory = (category: ProductCategory) => {
-    setActiveCategories((current) =>
+    setDraftCategories((current) =>
       current.includes(category)
         ? current.filter((item) => item !== category)
         : [...current, category]
     );
-    setFiltersOpen(false);
   };
 
   const clearFilters = () => {
-    setActiveCategories([]);
+    setDraftCategories([]);
+  };
+
+  const applyFilters = () => {
+    setActiveCategories(draftCategories);
     setFiltersOpen(false);
   };
 
@@ -96,10 +108,7 @@ export default function ShopClient() {
 
             <button
               type="button"
-              onClick={() => {
-                setFiltersOpen((open) => !open);
-                setSortOpen(false);
-              }}
+              onClick={toggleFilters}
               aria-expanded={filtersOpen}
               className="focus-ring flex min-h-12 items-center justify-center gap-2 rounded-full border border-black/8 bg-black px-5 text-xs font-bold uppercase tracking-[0.14em] text-white transition hover:-translate-y-0.5 hover:bg-circle-accent"
             >
@@ -150,13 +159,13 @@ export default function ShopClient() {
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className={`focus-ring rounded-full px-4 py-2 text-sm font-bold transition ${activeCategories.length === 0 ? 'bg-circle-accent text-white shadow-[0_10px_26px_rgba(37,71,255,0.24)]' : 'bg-circle-tint text-black/64 hover:bg-black hover:text-white'}`}
+                  className={`focus-ring rounded-full px-4 py-2 text-sm font-bold transition ${draftCategories.length === 0 ? 'bg-circle-accent text-white shadow-[0_10px_26px_rgba(37,71,255,0.24)]' : 'bg-circle-tint text-black/64 hover:bg-black hover:text-white'}`}
                 >
                   All
                 </button>
 
                 {categories.map((category) => {
-                  const isActive = activeCategories.includes(category);
+                  const isActive = draftCategories.includes(category);
                   return (
                     <button
                       key={category}
@@ -169,6 +178,19 @@ export default function ShopClient() {
                   );
                 })}
               </div>
+
+              <div className="mt-4 flex flex-col gap-3 border-t border-black/8 pt-4 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-xs font-semibold text-black/45">
+                  {draftCategories.length === 0 ? 'Showing all categories' : `${draftCategories.length} categories selected`}
+                </p>
+                <button
+                  type="button"
+                  onClick={applyFilters}
+                  className="focus-ring flex min-h-11 items-center justify-center rounded-full bg-circle-accent px-6 text-xs font-bold uppercase tracking-[0.14em] text-white shadow-[0_12px_30px_rgba(37,71,255,0.24)] transition hover:-translate-y-0.5 hover:bg-black"
+                >
+                  Apply filters
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -178,7 +200,7 @@ export default function ShopClient() {
           {(query || activeCategories.length > 0 || sortBy !== 'featured') && (
             <button
               type="button"
-              onClick={() => { setQuery(''); setActiveCategories([]); setSortBy('featured'); setFiltersOpen(false); setSortOpen(false); }}
+              onClick={() => { setQuery(''); setActiveCategories([]); setDraftCategories([]); setSortBy('featured'); setFiltersOpen(false); setSortOpen(false); }}
               className="rounded-full px-3 py-1.5 text-circle-accent transition hover:bg-circle-tint"
             >
               Reset
