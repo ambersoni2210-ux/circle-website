@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'Inter', 'system-ui', 'sans-serif'],
-        display: ['var(--font-fraunces)', 'Fraunces', 'Georgia', 'serif'],
+        display: ['var(--font-cormorant)', 'Cormorant', 'Georgia', 'serif'],
       },
       colors: {
         circle: {

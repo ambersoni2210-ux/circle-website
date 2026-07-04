@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter, Fraunces } from 'next/font/google';
+import { Inter, Cormorant } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,11 +13,11 @@ const inter = Inter({
   display: 'swap',
 });
 
-const fraunces = Fraunces({
+const cormorant = Cormorant({
   subsets: ['latin'],
-  variable: '--font-fraunces',
+  variable: '--font-cormorant',
   display: 'swap',
-  axes: ['opsz'],
+  weight: ['300', '400', '500'],
 });
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
         <IntroAnimation />
         <a href="#main" className="skip-link">Skip to content</a>
