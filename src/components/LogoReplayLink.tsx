@@ -18,7 +18,7 @@ export default function LogoReplayLink({
     <Link
       href="/"
       onClick={() => playCircleIntro()}
-      aria-label="Circle — go to homepage"
+      aria-label="Circle, go to homepage"
       className={`focus-ring inline-flex items-center rounded-full ${color}`}
     >
       <span className={`font-display font-bold tracking-[0.32em] ${wordSize}`}>CIRCLE</span>

@@ -1,5 +1,5 @@
 /* =====================================================================
-   CIRCLE — CENTRAL IMAGE CONFIGURATION
+   CIRCLE - CENTRAL IMAGE CONFIGURATION
    =====================================================================
 
    THIS IS THE ONLY FILE YOU NEED TO EDIT TO CHANGE ANY IMAGE ON THE SITE.
@@ -11,14 +11,14 @@
    ---------------------------------------------------------------------
    HOW TO SWAP AN IMAGE (non-coder friendly):
    ---------------------------------------------------------------------
-   Option A — use a file you uploaded yourself:
+   Option A - use a file you uploaded yourself:
      1. Put your image in:  public/images/products/   (or public/images/)
      2. Find the product key below (e.g. premiumHoodie)
      3. Change its "src" to your file, for example:
           src: "/images/products/my-hoodie-photo.jpg"
         (Always start the path with a slash. Do NOT write "public".)
 
-   Option B — use an external image link (e.g. an Unsplash photo):
+   Option B - use an external image link (e.g. an Unsplash photo):
      1. Copy the direct image URL (it should end in .jpg / .png / .webp)
      2. Paste it as the "src", for example:
           src: "https://images.unsplash.com/photo-xxxx?w=1200&q=80"

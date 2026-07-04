@@ -23,13 +23,13 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.getcircle.in'),
   title: {
-    default: 'Circle — Merchandise That Carries Belonging',
+    default: 'Circle | Custom Merchandise and Branded Stores in India',
     template: '%s | Circle',
   },
   description:
-    'Circle builds premium merchandise and custom branded stores for colleges, companies, teams, alumni groups and communities across India.',
+    'Create premium custom merchandise and branded stores for colleges, companies, sports teams, events, alumni groups and communities across India.',
   openGraph: {
-    title: 'Circle — Merchandise That Carries Belonging',
+    title: 'Circle | Merchandise That Carries Belonging',
     description:
       'Premium merchandise and custom branded stores for communities, campuses, companies and teams.',
     url: 'https://www.getcircle.in',

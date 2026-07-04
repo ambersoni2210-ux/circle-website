@@ -55,7 +55,7 @@ export default function Navbar() {
       >
         <div className="container-c">
           <div className="flex h-[76px] items-center justify-between gap-4 pt-[env(safe-area-inset-top)] sm:h-20">
-            <Link href="/" aria-label="Circle — go to homepage" className="focus-ring -ml-1 inline-flex items-center rounded-full p-1 no-tap-highlight" onClick={() => { setMenuOpen(false); playCircleIntro(); }}>
+            <Link href="/" aria-label="Circle, go to homepage" className="focus-ring -ml-1 inline-flex items-center rounded-full p-1 no-tap-highlight" onClick={() => { setMenuOpen(false); playCircleIntro(); }}>
               <span className={`font-display text-xl font-bold tracking-[0.32em] transition-colors ${useLight ? 'text-circle-cream' : 'text-circle-ink'}`}>CIRCLE</span>
             </Link>
 

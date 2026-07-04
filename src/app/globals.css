@@ -4,7 +4,7 @@
 
 /* =====================================================================
    CIRCLE DESIGN SYSTEM
-   Display: Fraunces (editorial serif — the "fashion house" voice)
+   Display: Fraunces (editorial serif - the "fashion house" voice)
    Body/UI: Inter (clean, reliable sans, matches the CIRCLE wordmark)
    Palette: ink black + warm cream + soft warm neutrals
    ===================================================================== */
@@ -20,6 +20,8 @@
   --mist: #E4E4E8;         /* light cool grey */
   --accent: #2547FF;       /* cobalt blue accent */
   --accent-deep: #1B34C4;  /* darker cobalt for hover */
+  --blue-tint: #EEF2FF;    /* soft light-blue section background */
+  --blue-tint-2: #E6ECFF;  /* slightly deeper light-blue */
   --line: rgba(10, 10, 10, 0.10);
   --muted: rgba(10, 10, 10, 0.56);
   /* legacy aliases so existing classes keep working */
@@ -207,7 +209,7 @@ textarea:focus-visible {
 .circle-mark circle { transition: stroke 0.3s ease; }
 
 /* =====================================================================
-   BRAND ANIMATION — long particle intro + short logo splash
+   BRAND ANIMATION - 8s intro (dots form logo, then clean logo holds) + 1.8s splash
    ===================================================================== */
 .intro-screen {
   position: fixed;
@@ -217,7 +219,7 @@ textarea:focus-visible {
   align-items: center;
   justify-content: center;
   background: var(--ink);
-  transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.6s ease;
+  transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1), opacity 0.55s ease;
 }
 .intro-leaving { transform: translateY(-100%); opacity: 0.85; }
 
@@ -234,63 +236,66 @@ textarea:focus-visible {
   .intro-svg-sm { width: 180px; height: 180px; }
 }
 
-/* --- LONG intro (~8.5s) --- */
-/* particles start scattered, drift, then converge onto the ring */
+/* --- LONG intro (8s) --- */
+/* Phase 1 (0 to 5.5s): dots drift in and converge onto the ring.
+   Phase 2 (5.5 to 6.1s): dots fade out, leaving the clean logo. */
 .intro-particle {
   opacity: 0;
-  animation: particle-in 4.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation:
+    particle-converge 5.5s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    particle-fade 0.6s ease forwards 5.5s;
 }
-@keyframes particle-in {
+@keyframes particle-converge {
   0%   { opacity: 0; transform: translate(0, 0); }
-  12%  { opacity: 0.9; }
-  55%  { opacity: 0.9; transform: translate(calc(var(--tx) * 0.5), calc(var(--ty) * 0.5)); }
-  100% { opacity: 0.95; transform: translate(var(--tx), var(--ty)); }
+  10%  { opacity: 0.9; }
+  100% { opacity: 0.9; transform: translate(var(--tx), var(--ty)); }
 }
-/* ring fades/draws in once particles have gathered (~4.3s) */
+@keyframes particle-fade {
+  0%   { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+/* Ring draws in as dots gather (4s to 6s), then stays for the hold */
 .intro-ring-lg {
   opacity: 0;
   stroke-dasharray: 578;
   stroke-dashoffset: 578;
-  animation: ring-draw 2.6s cubic-bezier(0.76, 0, 0.24, 1) forwards;
-  animation-delay: 4.3s;
+  animation: ring-draw 2s cubic-bezier(0.76, 0, 0.24, 1) forwards 4s;
 }
 @keyframes ring-draw {
   0%   { opacity: 0; stroke-dashoffset: 578; }
-  10%  { opacity: 1; }
+  15%  { opacity: 1; }
   100% { opacity: 1; stroke-dashoffset: 0; }
 }
-/* wordmark resolves last (~6.6s) */
+/* Clean wordmark resolves ~5.8s and holds through to 8s (>=2s reading time) */
 .intro-word-lg {
   opacity: 0;
-  animation: word-in 1.4s ease forwards;
-  animation-delay: 6.6s;
+  animation: word-in 1s ease forwards 5.8s;
 }
 @keyframes word-in {
-  0%   { opacity: 0; letter-spacing: 14px; }
+  0%   { opacity: 0; letter-spacing: 13px; }
   100% { opacity: 1; letter-spacing: 7px; }
 }
 .intro-tagline {
-  color: rgba(250, 250, 250, 0.62);
+  color: rgba(250, 250, 250, 0.6);
   font-family: var(--font-inter), Inter, sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   opacity: 0;
-  animation: word-in 1.2s ease forwards;
-  animation-delay: 7.3s;
+  animation: fade-simple 0.9s ease forwards 6.2s;
 }
+@keyframes fade-simple { to { opacity: 1; } }
 
-/* --- SHORT splash (~2.4s): logo appears, holds, leaves --- */
+/* --- SHORT splash (1.8s) --- */
 .splash-ring {
   opacity: 0;
   transform-box: fill-box;
   transform-origin: center;
-  animation: splash-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: splash-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .splash-word {
   opacity: 0;
-  animation: word-in 0.8s ease forwards;
-  animation-delay: 0.35s;
+  animation: word-in 0.6s ease forwards 0.3s;
 }
 @keyframes splash-in {
   0%   { opacity: 0; transform: scale(0.9); }
@@ -304,7 +309,7 @@ textarea:focus-visible {
 .animate-soft-float { animation: soft-float 7s ease-in-out infinite; }
 
 /* =====================================================================
-   REDUCED MOTION — turn off all motion for people who ask for it
+   REDUCED MOTION - turn off all motion for people who ask for it
    ===================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -7,7 +7,7 @@ import { useCart } from '@/context/CartContext';
 import { productImageFor } from '@/data/products';
 
 const orderTypes = ['Personal order', 'Bulk order', 'Custom store inquiry', 'Voucher/reward program'];
-const quantities = ['1–10', '11–50', '51–200', '201–500', '500+'];
+const quantities = ['1 to 10', '11 to 50', '51 to 200', '201 to 500', '500+'];
 
 export default function CheckoutForm() {
   const { items, clearCart, updateQuantity, removeItem } = useCart();

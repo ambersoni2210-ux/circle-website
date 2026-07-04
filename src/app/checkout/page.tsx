@@ -3,7 +3,7 @@ import CheckoutForm from '@/components/CheckoutForm';
 
 export const metadata: Metadata = {
   title: 'Order Inquiry',
-  description: 'Request a Circle merchandise order, bulk quote, custom store or voucher program.',
+  description: 'Submit your Circle order inquiry for custom merchandise, bulk products, branded stores, uniforms, kits, vouchers and community merchandise.',
 };
 
 export default function CheckoutPage() {

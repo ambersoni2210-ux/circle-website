@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 /* =====================================================================
-   CIRCLE LOGO — matches the official mark:
+   CIRCLE LOGO - matches the official mark:
    a thin circle outline (subtle gradient) with "CIRCLE" in light,
    wide-spaced letters centred inside.
    - CircleEmblem: the full circle-with-word mark (intro + footer).
@@ -59,7 +59,7 @@ export function CircleMark({ tone = 'dark', size = 30 }: { tone?: Tone; size?: n
 export function CircleLogo({ tone = 'dark', href = '/' }: { tone?: Tone; href?: string }) {
   const text = tone === 'light' ? 'text-circle-cream' : 'text-circle-ink';
   return (
-    <Link href={href} aria-label="Circle — go to homepage" className="group focus-ring -ml-1 inline-flex items-center gap-3 rounded-full p-1 no-tap-highlight">
+    <Link href={href} aria-label="Circle, go to homepage" className="group focus-ring -ml-1 inline-flex items-center gap-3 rounded-full p-1 no-tap-highlight">
       <CircleMark tone={tone} size={30} />
       <span className={`text-[0.95rem] font-light tracking-[0.4em] ${text}`}>CIRCLE</span>
     </Link>

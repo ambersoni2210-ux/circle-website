@@ -17,6 +17,8 @@ module.exports = {
           mist: '#E4E4E8',
           accent: '#2547FF',
           'accent-deep': '#1B34C4',
+          tint: '#EEF2FF',
+          'tint-2': '#E6ECFF',
           // legacy aliases (existing class names keep working)
           cream: '#FAFAFA',
           'cream-deep': '#F0F0F2',

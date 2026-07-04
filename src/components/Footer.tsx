@@ -40,7 +40,7 @@ export default function Footer() {
               Merchandise that carries belonging.
             </p>
             <p className="mt-6 max-w-md text-sm leading-7 text-white/60">
-              Circle builds premium merchandise and custom branded stores for campuses, companies, teams, alumni groups and communities across India.
+              Circle creates premium custom merchandise and branded stores for colleges, companies, sports teams, alumni groups, events and communities across India.
             </p>
           </div>
 
@@ -71,13 +71,13 @@ export default function Footer() {
           </div>
           <div>
             <p className="kicker text-white/40">Hours</p>
-            <p className="mt-3">Mon–Fri, 9 AM – 9 PM IST</p>
-            <p className="mt-1">Sat–Sun, 9 AM – 5 PM IST</p>
+            <p className="mt-3">Weekdays, 9 AM to 9 PM</p>
+            <p className="mt-1">Weekends, 10 AM to 8 PM</p>
           </div>
           <div>
             <p className="kicker text-white/40">GST</p>
             <p className="mt-3">07ABCDE1234F1Z5</p>
-            <p className="mt-1">© {new Date().getFullYear()} Circle</p>
+            <p className="mt-1">Circle. All rights reserved 2026.</p>
           </div>
         </div>
       </div>

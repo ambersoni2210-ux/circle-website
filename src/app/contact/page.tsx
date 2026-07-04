@@ -3,8 +3,8 @@ import ContactForm from '@/components/ContactForm';
 import AnimatedSection from '@/components/AnimatedSection';
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description: 'Contact Circle for custom stores, bulk merchandise, corporate uniforms, college merchandise and team kits.',
+  title: 'Contact Circle',
+  description: 'Contact Circle for custom stores, bulk merchandise, corporate uniforms, college merchandise, sports team kits, event products and gifting inquiries.',
 };
 
 export default function ContactPage() {
@@ -14,8 +14,8 @@ export default function ContactPage() {
         <div className="grid gap-10 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
           <AnimatedSection>
             <p className="kicker text-black/45">Contact Circle</p>
-            <h1 className="display-lg mt-4">Tell us about your circle.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-9 text-black/62">Share what you want to build: a campus store, company store, sports kit, alumni drop, uniforms, vouchers or bulk merchandise.</p>
+            <h1 className="display-lg mt-4">Tell us what you want to create.</h1>
+            <p className="mt-6 max-w-xl text-lg leading-9 text-black/62">Share your requirement for a custom store, college drop, corporate uniform, event kit, sports team merchandise, welcome gift, alumni collection or general inquiry.</p>
             <div className="mt-10 grid gap-4">
               <div className="rounded-[2rem] bg-white p-6">
                 <p className="kicker text-black/45">Email</p>
@@ -31,7 +31,7 @@ export default function ContactPage() {
               </div>
               <div className="rounded-[2rem] bg-white p-6">
                 <p className="kicker text-black/45">Hours</p>
-                <p className="mt-3 text-sm leading-7 text-black/62">Monday–Friday, 9:00 AM–9:00 PM IST<br />Saturday–Sunday, 9:00 AM–5:00 PM IST</p>
+                <p className="mt-3 text-sm leading-7 text-black/62">9 AM to 9 PM on weekdays<br />10 AM to 8 PM on weekends</p>
               </div>
             </div>
           </AnimatedSection>
